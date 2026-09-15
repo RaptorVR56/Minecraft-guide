@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minecraft-guide | Mob Guide</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1510;
+    color: #edf5ef;
+    line-height: 1.6;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(10, 22, 14, 0.97);
+
+    border-bottom: 1px solid #294a32;
+
+    backdrop-filter: blur(8px);
+}
+
+.nav-container {
+    max-width: 1250px;
+    min-height: 70px;
+
+    margin: auto;
+    padding: 0 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #6ee878;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.nav-links a {
+    padding: 10px 13px;
+
+    border-radius: 7px;
+
+    color: #aebdb2;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #1a3621;
+    color: #72e77b;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 75px 24px;
+
+    background:
+        linear-gradient(
+            rgba(5, 15, 8, 0.65),
+            rgba(5, 15, 8, 0.94)
+        ),
+        url("images/minecraft-banner.jpg")
+        center / cover;
+
+    border-bottom: 1px solid #294a32;
+}
+
+.hero-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.label {
+    color: #6ee878;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 9px 0 10px;
+
+    font-size: clamp(45px, 7vw, 75px);
+    line-height: 1;
+}
+
+.hero p {
+    max-width: 720px;
+
+    color: #b4c2b8;
+
+    font-size: 17px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    max-width: 1250px;
+
+    margin: auto;
+    padding: 30px 24px 10px;
+}
+
+.search {
+    width: 100%;
+
+    padding: 16px 17px;
+
+    background: #101c14;
+
+    border: 1px solid #35533c;
+    border-radius: 8px;
+
+    color: white;
+
+    outline: none;
+}
+
+.search:focus {
+    border-color: #6ee878;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+.filter {
+    padding: 9px 14px;
+
+    background: #101c14;
+
+    border: 1px solid #304b37;
+    border-radius: 7px;
+
+    color: #aab9af;
+
+    cursor: pointer;
+
+    font-weight: 900;
+}
+
+.filter:hover,
+.filter.active {
+    background: #68dd70;
+    border-color: #68dd70;
+
+    color: #071008;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results {
+    max-width: 1250px;
+
+    margin: auto;
+    padding: 18px 24px;
+
+    color: #718278;
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* =========================
+   MOB GRID
+========================= */
+
+.mob-grid {
+    max-width: 1250px;
+
+    margin: auto;
+    padding: 0 24px 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.mob-card {
+    overflow: hidden;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+.mob-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #6ee878;
+}
+
+.mob-image {
+    height: 180px;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #23412b,
+            #0c1710
+        );
+
+    overflow: hidden;
+}
+
+.mob-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+}
+
+.mob-image.image-missing::after {
+    content: "IMAGE UNAVAILABLE";
+
+    color: #65756b;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.mob-body {
+    padding: 18px;
+}
+
+.mob-name {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.mob-type {
+    display: inline-block;
+
+    margin: 8px 0 14px;
+
+    padding: 5px 8px;
+
+    background: #193521;
+    color: #70e77a;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+.mob-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+}
+
+.info-box {
+    padding: 8px;
+
+    background: #0b1510;
+
+    border-radius: 6px;
+}
+
+.info-label {
+    display: block;
+
+    color: #64756a;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: #d2ddd5;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.details-button {
+    width: 100%;
+
+    margin-top: 13px;
+    padding: 10px;
+
+    background: #193521;
+
+    border: 1px solid #3a6043;
+    border-radius: 6px;
+
+    color: #70e77a;
+
+    cursor: pointer;
+
+    font-weight: 900;
+}
+
+.details-button:hover {
+    background: #68dd70;
+    color: #071008;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    display: none;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    color: #708078;
+}
+
+.empty.show {
+    display: block;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    width: min(850px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #101c14;
+
+    border: 1px solid #42654a;
+    border-radius: 12px;
+}
+
+.modal-header {
+    padding: 21px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #294a32;
+}
+
+.modal-header h2 {
+    font-size: 29px;
+}
+
+.close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #193521;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 21px;
+}
+
+.modal-content {
+    padding: 24px;
+}
+
+.modal-image {
+    height: 230px;
+
+    margin-bottom: 22px;
+
+    display: grid;
+    place-items: center;
+
+    background: #0b1510;
+
+    border-radius: 9px;
+}
+
+.modal-image img {
+    height: 100%;
+    max-width: 100%;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+}
+
+.detail-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+}
+
+.detail {
+    padding: 14px;
+
+    background: #0b1510;
+
+    border-radius: 7px;
+}
+
+.detail strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #6ee878;
+}
+
+.modal-content h3 {
+    margin: 19px 0 7px;
+}
+
+.modal-content p {
+    color: #9eaca2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 24px;
+
+    background: #08100b;
+
+    border-top: 1px solid #203728;
+}
+
+.footer-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-container p {
+    color: #6f8075;
+
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #7f9085;
+
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #6ee878;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1050px) {
+
+    .mob-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 14px 20px;
+
+        gap: 10px;
+    }
+
+    .mob-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .mob-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            MINECRAFT<span>-GUIDE</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#guides">
+                Guides
+            </a>
+
+            <a href="mobs.html" class="active">
+                Mobs
+            </a>
+
+            <a href="building.html">
+                Building
+            </a>
+
+            <a href="index.html#modding">
+                Modding
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-container">
+
+        <div class="label">
+            MINECRAFT DATABASE
+        </div>
+
+        <h1>
+            Mob Guide
+        </h1>
+
+        <p>
+            Search Minecraft mobs, filter them by behavior,
+            and open detailed information about individual mobs.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- CONTROLS -->
+
+<section class="controls">
+
+    <input
+        type="search"
+        id="search"
+        class="search"
+        placeholder="Search for a mob..."
+        autocomplete="off"
+    >
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            data-type="All"
+        >
+            All
+        </button>
+
+        <button
+            class="filter"
+            data-type="Passive"
+        >
+            Passive
+        </button>
+
+        <button
+            class="filter"
+            data-type="Neutral"
+        >
+            Neutral
+        </button>
+
+        <button
+            class="filter"
+            data-type="Hostile"
+        >
+            Hostile
+        </button>
+
+        <button
+            class="filter"
+            data-type="Boss"
+        >
+            Boss
+        </button>
+
+    </div>
+
+</section>
+
+
+<div
+    class="results"
+    id="results"
+>
+</div>
+
+
+<main
+    class="mob-grid"
+    id="mobGrid"
+>
+</main>
+
+
+<div
+    class="empty"
+    id="empty"
+>
+
+    <h2>
+        No mobs found
+    </h2>
+
+    <p>
+        Try a different search or category.
+    </p>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalName">
+                Mob
+            </h2>
+
+            <button
+                class="close"
+                id="closeModal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-content">
+
+            <div class="modal-image">
+
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+            <div class="detail-grid">
+
+                <div class="detail">
+
+                    <strong>
+                        Type
+                    </strong>
+
+                    <span id="modalType"></span>
+
+                </div>
+
+                <div class="detail">
+
+                    <strong>
+                        Health
+                    </strong>
+
+                    <span id="modalHealth"></span>
+
+                </div>
+
+                <div class="detail">
+
+                    <strong>
+                        Attack
+                    </strong>
+
+                    <span id="modalAttack"></span>
+
+                </div>
+
+                <div class="detail">
+
+                    <strong>
+                        Habitat
+                    </strong>
+
+                    <span id="modalHabitat"></span>
+
+                </div>
+
+            </div>
+
+            <h3>
+                About
+            </h3>
+
+            <p id="modalDescription"></p>
+
+            <h3>
+                Drops / Useful Information
+            </h3>
+
+            <p id="modalDrops"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <p>
+            © 2026 Minecraft-guide.
+            Fan-made Minecraft resource.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="building.html">
+                Building
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   MOB DATABASE
+========================= */
+
+const mobs = [
+
+    {
+        id: "allay",
+        name: "Allay",
+        type: "Passive",
+        health: "20 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "None",
+        description: "A friendly flying mob that can collect dropped items matching an item given to it."
+    },
+
+    {
+        id: "armadillo",
+        name: "Armadillo",
+        type: "Passive",
+        health: "12 HP",
+        attack: "None",
+        habitat: "Savanna",
+        drops: "Armadillo Scute",
+        description: "A peaceful mob that can roll itself into a defensive state."
+    },
+
+    {
+        id: "axolotl",
+        name: "Axolotl",
+        type: "Passive",
+        health: "14 HP",
+        attack: "2–3",
+        habitat: "Lush Caves",
+        drops: "None",
+        description: "An aquatic mob that can help players fight underwater enemies."
+    },
+
+    {
+        id: "bat",
+        name: "Bat",
+        type: "Passive",
+        health: "6 HP",
+        attack: "None",
+        habitat: "Caves",
+        drops: "None",
+        description: "A small flying cave mob that does not attack players."
+    },
+
+    {
+        id: "camel",
+        name: "Camel",
+        type: "Passive",
+        health: "32 HP",
+        attack: "None",
+        habitat: "Desert",
+        drops: "Leather",
+        description: "A rideable desert animal that can carry two players."
+    },
+
+    {
+        id: "cat",
+        name: "Cat",
+        type: "Passive",
+        health: "10 HP",
+        attack: "None",
+        habitat: "Villages",
+        drops: "None",
+        description: "A tameable animal commonly found around villages."
+    },
+
+    {
+        id: "chicken",
+        name: "Chicken",
+        type: "Passive",
+        health: "4 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "Feather, Chicken",
+        description: "A common farm animal that lays eggs."
+    },
+
+    {
+        id: "cow",
+        name: "Cow",
+        type: "Passive",
+        health: "10 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "Leather, Beef",
+        description: "A common farm animal that provides food and leather."
+    },
+
+    {
+        id: "donkey",
+        name: "Donkey",
+        type: "Passive",
+        health: "15–30 HP",
+        attack: "None",
+        habitat: "Plains",
+        drops: "Leather",
+        description: "A rideable animal that can carry a chest."
+    },
+
+    {
+        id: "fox",
+        name: "Fox",
+        type: "Passive",
+        health: "10 HP",
+        attack: "Variable",
+        habitat: "Taiga",
+        drops: "None",
+        description: "A quick animal that can pick up and carry certain items."
+    },
+
+    {
+        id: "frog",
+        name: "Frog",
+        type: "Passive",
+        health: "10 HP",
+        attack: "Tongue",
+        habitat: "Swamps",
+        drops: "Froglights",
+        description: "An amphibious mob that can eat certain small mobs."
+    },
+
+    {
+        id: "goat",
+        name: "Goat",
+        type: "Neutral",
+        health: "10 HP",
+        attack: "Ram",
+        habitat: "Mountains",
+        drops: "Goat Horn",
+        description: "A mountain mob that can ram nearby entities."
+    },
+
+    {
+        id: "horse",
+        name: "Horse",
+        type: "Passive",
+        health: "15–30 HP",
+        attack: "None",
+        habitat: "Plains",
+        drops: "Leather",
+        description: "A rideable animal with different speed and jump abilities."
+    },
+
+    {
+        id: "llama",
+        name: "Llama",
+        type: "Neutral",
+        health: "15–30 HP",
+        attack: "Spit",
+        habitat: "Mountains",
+        drops: "Leather",
+        description: "A pack animal that can carry items in a chest."
+    },
+
+    {
+        id: "mooshroom",
+        name: "Mooshroom",
+        type: "Passive",
+        health: "10 HP",
+        attack: "None",
+        habitat: "Mushroom Fields",
+        drops: "Leather, Beef",
+        description: "A special cow variant found on Mushroom Fields."
+    },
+
+    {
+        id: "panda",
+        name: "Panda",
+        type: "Neutral",
+        health: "20 HP",
+        attack: "Variable",
+        habitat: "Jungle",
+        drops: "Bamboo",
+        description: "A bamboo-eating mob with several different personalities."
+    },
+
+    {
+        id: "parrot",
+        name: "Parrot",
+        type: "Passive",
+        health: "6 HP",
+        attack: "None",
+        habitat: "Jungle",
+        drops: "None",
+        description: "A tameable flying mob that can imitate nearby mob sounds."
+    },
+
+    {
+        id: "pig",
+        name: "Pig",
+        type: "Passive",
+        health: "10 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "Porkchop",
+        description: "A common farm animal that can be ridden with a saddle."
+    },
+
+    {
+        id: "polar_bear",
+        name: "Polar Bear",
+        type: "Neutral",
+        health: "30 HP",
+        attack: "Melee",
+        habitat: "Snowy Biomes",
+        drops: "Fish",
+        description: "A large cold-biome animal that can become aggressive."
+    },
+
+    {
+        id: "rabbit",
+        name: "Rabbit",
+        type: "Passive",
+        health: "3 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "Rabbit Hide",
+        description: "A small and fast animal found in multiple biomes."
+    },
+
+    {
+        id: "sheep",
+        name: "Sheep",
+        type: "Passive",
+        health: "8 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "Wool, Mutton",
+        description: "A farm animal useful for wool and food."
+    },
+
+    {
+        id: "sniffer",
+        name: "Sniffer",
+        type: "Passive",
+        health: "14 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "None",
+        description: "An ancient mob that can sniff out special plants."
+    },
+
+    {
+        id: "squid",
+        name: "Squid",
+        type: "Passive",
+        health: "10 HP",
+        attack: "None",
+        habitat: "Water",
+        drops: "Ink Sac",
+        description: "An aquatic mob commonly found in rivers and oceans."
+    },
+
+    {
+        id: "tadpole",
+        name: "Tadpole",
+        type: "Passive",
+        health: "6 HP",
+        attack: "None",
+        habitat: "Water",
+        drops: "None",
+        description: "The young form of a frog."
+    },
+
+    {
+        id: "turtle",
+        name: "Turtle",
+        type: "Passive",
+        health: "30 HP",
+        attack: "None",
+        habitat: "Beaches",
+        drops: "Scute",
+        description: "An aquatic mob that returns to its home beach to lay eggs."
+    },
+
+    {
+        id: "villager",
+        name: "Villager",
+        type: "Passive",
+        health: "20 HP",
+        attack: "None",
+        habitat: "Villages",
+        drops: "Trading",
+        description: "An NPC that can trade items with players."
+    },
+
+    {
+        id: "wandering_trader",
+        name: "Wandering Trader",
+        type: "Passive",
+        health: "20 HP",
+        attack: "None",
+        habitat: "Overworld",
+        drops: "None",
+        description: "A travelling trader that appears around the Overworld."
+    },
+
+    {
+        id: "wolf",
+        name: "Wolf",
+        type: "Neutral",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Taiga / Forests",
+        drops: "None",
+        description: "A tameable animal that can become a loyal companion."
+    },
+
+    {
+        id: "enderman",
+        name: "Enderman",
+        type: "Neutral",
+        health: "40 HP",
+        attack: "Melee",
+        habitat: "Overworld / Nether / End",
+        drops: "Ender Pearl",
+        description: "A tall teleporting mob that becomes aggressive when provoked."
+    },
+
+    {
+        id: "spider",
+        name: "Spider",
+        type: "Neutral",
+        health: "16 HP",
+        attack: "Melee",
+        habitat: "Overworld",
+        drops: "String, Spider Eye",
+        description: "A climbing mob that can become hostile."
+    },
+
+    {
+        id: "zombie",
+        name: "Zombie",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Overworld",
+        drops: "Rotten Flesh",
+        description: "A common undead hostile mob that attacks nearby players."
+    },
+
+    {
+        id: "skeleton",
+        name: "Skeleton",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Ranged",
+        habitat: "Overworld",
+        drops: "Bones, Arrows",
+        description: "An undead ranged attacker that fires arrows."
+    },
+
+    {
+        id: "creeper",
+        name: "Creeper",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Explosion",
+        habitat: "Overworld",
+        drops: "Gunpowder",
+        description: "A hostile mob that approaches players before exploding."
+    },
+
+    {
+        id: "drowned",
+        name: "Drowned",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee / Ranged",
+        habitat: "Oceans / Rivers",
+        drops: "Rotten Flesh",
+        description: "An underwater zombie variant."
+    },
+
+    {
+        id: "husk",
+        name: "Husk",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Desert",
+        drops: "Rotten Flesh",
+        description: "A desert zombie variant."
+    },
+
+    {
+        id: "cave_spider",
+        name: "Cave Spider",
+        type: "Hostile",
+        health: "12 HP",
+        attack: "Melee",
+        habitat: "Mineshafts",
+        drops: "String, Spider Eye",
+        description: "A smaller spider variant associated with mineshafts."
+    },
+
+    {
+        id: "slime",
+        name: "Slime",
+        type: "Hostile",
+        health: "Variable",
+        attack: "Jump",
+        habitat: "Swamps / Slime Chunks",
+        drops: "Slimeball",
+        description: "A bouncing hostile mob that splits into smaller slimes."
+    },
+
+    {
+        id: "magma_cube",
+        name: "Magma Cube",
+        type: "Hostile",
+        health: "Variable",
+        attack: "Jump",
+        habitat: "Nether",
+        drops: "Magma Cream",
+        description: "A Nether mob similar to a slime."
+    },
+
+    {
+        id: "blaze",
+        name: "Blaze",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Fireballs",
+        habitat: "Nether",
+        drops: "Blaze Rod",
+        description: "A floating Nether mob commonly found in Nether Fortresses."
+    },
+
+    {
+        id: "ghast",
+        name: "Ghast",
+        type: "Hostile",
+        health: "10 HP",
+        attack: "Fireballs",
+        habitat: "Nether",
+        drops: "Ghast Tear",
+        description: "A large floating Nether mob that fires explosive projectiles."
+    },
+
+    {
+        id: "hoglin",
+        name: "Hoglin",
+        type: "Hostile",
+        health: "40 HP",
+        attack: "Melee",
+        habitat: "Crimson Forest",
+        drops: "Porkchop, Leather",
+        description: "A large Nether creature that attacks nearby entities."
+    },
+
+    {
+        id: "piglin",
+        name: "Piglin",
+        type: "Neutral",
+        health: "16 HP",
+        attack: "Melee / Ranged",
+        habitat: "Nether",
+        drops: "Gold-related loot",
+        description: "A Nether mob associated with gold and bastions."
+    },
+
+    {
+        id: "piglin_brute",
+        name: "Piglin Brute",
+        type: "Hostile",
+        health: "50 HP",
+        attack: "Melee",
+        habitat: "Bastions",
+        drops: "None",
+        description: "A powerful Piglin variant that guards bastions."
+    },
+
+    {
+        id: "guardian",
+        name: "Guardian",
+        type: "Hostile",
+        health: "30 HP",
+        attack: "Laser",
+        habitat: "Ocean Monument",
+        drops: "Prismarine",
+        description: "An aquatic hostile mob found around Ocean Monuments."
+    },
+
+    {
+        id: "elder_guardian",
+        name: "Elder Guardian",
+        type: "Hostile",
+        health: "80 HP",
+        attack: "Laser",
+        habitat: "Ocean Monument",
+        drops: "Prismarine",
+        description: "A powerful guardian variant found in Ocean Monuments."
+    },
+
+    {
+        id: "shulker",
+        name: "Shulker",
+        type: "Hostile",
+        health: "30 HP",
+        attack: "Projectiles",
+        habitat: "End Cities",
+        drops: "Shulker Shell",
+        description: "An End mob that fires projectiles capable of causing levitation."
+    },
+
+    {
+        id: "phantom",
+        name: "Phantom",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Overworld Sky",
+        drops: "Phantom Membrane",
+        description: "A flying hostile mob that can appear after players avoid sleeping."
+    },
+
+    {
+        id: "witch",
+        name: "Witch",
+        type: "Hostile",
+        health: "26 HP",
+        attack: "Potions",
+        habitat: "Overworld",
+        drops: "Various",
+        description: "A hostile mob that attacks using harmful potions."
+    },
+
+    {
+        id: "pillager",
+        name: "Pillager",
+        type: "Hostile",
+        health: "24 HP",
+        attack: "Crossbow",
+        habitat: "Overworld",
+        drops: "Emerald",
+        description: "A ranged illager commonly found in patrols and raids."
+    },
+
+    {
+        id: "ravager",
+        name: "Ravager",
+        type: "Hostile",
+        health: "100 HP",
+        attack: "Melee",
+        habitat: "Raids",
+        drops: "Saddle",
+        description: "A large hostile beast used by illagers during raids."
+    },
+
+    {
+        id: "silverfish",
+        name: "Silverfish",
+        type: "Hostile",
+        health: "8 HP",
+        attack: "Melee",
+        habitat: "Strongholds",
+        drops: "None",
+        description: "A tiny hostile mob that can emerge from infested blocks."
+    },
+
+    {
+        id: "stray",
+        name: "Stray",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Ranged",
+        habitat: "Snowy Biomes",
+        drops: "Bones, Arrows",
+        description: "A snowy skeleton variant that fires special arrows."
+    },
+
+    {
+        id: "vex",
+        name: "Vex",
+        type: "Hostile",
+        health: "14 HP",
+        attack: "Melee",
+        habitat: "Evoker Summon",
+        drops: "None",
+        description: "A small flying hostile mob summoned by Evokers."
+    },
+
+    {
+        id: "vindicator",
+        name: "Vindicator",
+        type: "Hostile",
+        health: "24 HP",
+        attack: "Melee",
+        habitat: "Woodland Mansions / Raids",
+        drops: "Emerald",
+        description: "A heavily armed illager that specializes in melee combat."
+    },
+
+    {
+        id: "evoker",
+        name: "Evoker",
+        type: "Hostile",
+        health: "24 HP",
+        attack: "Magic",
+        habitat: "Woodland Mansions / Raids",
+        drops: "Totem of Undying",
+        description: "A spellcasting illager that can summon Vexes."
+    },
+
+    {
+        id: "bogged",
+        name: "Bogged",
+        type: "Hostile",
+        health: "16 HP",
+        attack: "Ranged",
+        habitat: "Swamps / Trial Chambers",
+        drops: "Bones, Arrows",
+        description: "A mossy skeleton variant that fires poisoned arrows."
+    },
+
+    {
+        id: "breeze",
+        name: "Breeze",
+        type: "Hostile",
+        health: "30 HP",
+        attack: "Wind Charges",
+        habitat: "Trial Chambers",
+        drops: "Breeze Rod",
+        description: "A wind-based hostile mob found in Trial Chambers."
+    },
+
+    {
+        id: "wither_skeleton",
+        name: "Wither Skeleton",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Nether Fortress",
+        drops: "Bones / Skull",
+        description: "A dangerous Nether skeleton that can inflict Wither."
+    },
+
+    {
+        id: "zombie_villager",
+        name: "Zombie Villager",
+        type: "Hostile",
+        health: "20 HP",
+        attack: "Melee",
+        habitat: "Overworld",
+        drops: "Rotten Flesh",
+        description: "An undead villager that can be cured."
+    },
+
+    {
+        id: "zoglin",
+        name: "Zoglin",
+        type: "Hostile",
+        health: "40 HP",
+        attack: "Melee",
+        habitat: "Nether / Overworld",
+        drops: "Rotten Flesh",
+        description: "An aggressive undead Hoglin."
+    },
+
+    {
+        id: "ender_dragon",
+        name: "Ender Dragon",
+        type: "Boss",
+        health: "200 HP",
+        attack: "Dragon Attacks",
+        habitat: "The End",
+        drops: "Dragon Egg / XP",
+        description: "The famous boss of the End dimension."
+    },
+
+    {
+        id: "wither",
+        name: "Wither",
+        type: "Boss",
+        health: "300 HP",
+        attack: "Explosive Projectiles",
+        habitat: "Summoned",
+        drops: "Nether Star",
+        description: "A powerful undead boss summoned by players."
+    },
+
+    {
+        id: "warden",
+        name: "Warden",
+        type: "Boss",
+        health: "500 HP",
+        attack: "Melee / Sonic",
+        habitat: "Deep Dark",
+        drops: "Sculk Catalyst",
+        description: "An extremely powerful Deep Dark mob that relies heavily on vibration and sound detection."
+    }
+
+];
+
+
+/* =========================
+   PAGE LOGIC
+========================= */
+
+const grid =
+    document.getElementById("mobGrid");
+
+const search =
+    document.getElementById("search");
+
+const results =
+    document.getElementById("results");
+
+const empty =
+    document.getElementById("empty");
+
+const modal =
+    document.getElementById("modal");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+let currentType = "All";
+
+
+function mobImage(mob) {
+
+    return `images/mobs/${mob.id}.png`;
+
+}
+
+
+function renderMobs() {
+
+    const query =
+        search.value
+        .toLowerCase()
+        .trim();
+
+    const filtered =
+        mobs.filter(mob => {
+
+            const matchesSearch =
+                mob.name
+                .toLowerCase()
+                .includes(query);
+
+            const matchesType =
+                currentType === "All" ||
+                mob.type === currentType;
+
+            return (
+                matchesSearch &&
+                matchesType
+            );
+
+        });
+
+
+    grid.innerHTML = "";
+
+
+    results.textContent =
+        `${filtered.length} mob${filtered.length === 1 ? "" : "s"} found`;
+
+
+    empty.classList.toggle(
+        "show",
+        filtered.length === 0
+    );
+
+
+    filtered.forEach(mob => {
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "mob-card";
+
+
+        card.innerHTML = `
+
+            <div class="mob-image">
+
+                <img
+                    src="${mobImage(mob)}"
+                    alt="${mob.name}"
+                    loading="lazy"
+                    onerror="
+                        this.parentElement.classList.add('image-missing');
+                        this.style.display='none';
+                    "
+                >
+
+            </div>
+
+            <div class="mob-body">
+
+                <div class="mob-name">
+                    ${mob.name}
+                </div>
+
+                <span class="mob-type">
+                    ${mob.type}
+                </span>
+
+                <div class="mob-info">
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Health
+                        </span>
+
+                        <span class="info-value">
+                            ${mob.health}
+                        </span>
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Attack
+                        </span>
+
+                        <span class="info-value">
+                            ${mob.attack}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-button"
+                    data-id="${mob.id}"
+                >
+                    View Details
+                </button>
+
+            </div>
+
+        `;
+
+
+        card
+            .querySelector(".details-button")
+            .addEventListener(
+                "click",
+                () => openMob(mob.id)
+            );
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+function openMob(id) {
+
+    const mob =
+        mobs.find(
+            item => item.id === id
+        );
+
+    if (!mob) return;
+
+
+    document
+        .getElementById("modalName")
+        .textContent = mob.name;
+
+
+    document
+        .getElementById("modalType")
+        .textContent = mob.type;
+
+
+    document
+        .getElementById("modalHealth")
+        .textContent = mob.health;
+
+
+    document
+        .getElementById("modalAttack")
+        .textContent = mob.attack;
+
+
+    document
+        .getElementById("modalHabitat")
+        .textContent = mob.habitat;
+
+
+    document
+        .getElementById("modalDescription")
+        .textContent = mob.description;
+
+
+    document
+        .getElementById("modalDrops")
+        .textContent = mob.drops;
+
+
+    const image =
+        document.getElementById("modalImage");
+
+    image.src =
+        mobImage(mob);
+
+    image.alt =
+        mob.name;
+
+
+    modal.classList.add("show");
+
+}
+
+
+function closeMob() {
+
+    modal.classList.remove("show");
+
+}
+
+
+/* SEARCH */
+
+search.addEventListener(
+    "input",
+    renderMobs
+);
+
+
+/* FILTERS */
+
+document
+    .querySelectorAll(".filter")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(".filter")
+                    .forEach(btn =>
+                        btn.classList.remove("active")
+                    );
+
+                button.classList.add("active");
+
+                currentType =
+                    button.dataset.type;
+
+                renderMobs();
+
+            }
+        );
+
+    });
+
+
+/* MODAL */
+
+closeModal.addEventListener(
+    "click",
+    closeMob
+);
+
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === modal
+        ) {
+            closeMob();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+            closeMob();
+        }
+
+    }
+);
+
+
+/* INITIAL LOAD */
+
+renderMobs();
+
+</script>
+
+</body>
+</html>
