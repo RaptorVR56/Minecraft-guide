@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minecraft Guide | Mob Encyclopedia</title>
+<title>Minecraft-guide | Learn Minecraft</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap');
-
-:root {
-    --bg: #07110b;
-    --bg2: #0b1b10;
-    --card: #102719;
-    --card2: #15341f;
-    --border: #285a37;
-    --green: #45b653;
-    --green2: #2e873b;
-    --light: #eef7ef;
-    --muted: #a8b8ac;
-    --gold: #e6c15a;
-    --red: #e05252;
-    --blue: #57a9e8;
-    --purple: #b678e6;
-}
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -36,61 +20,75 @@ html {
 }
 
 body {
-    background:
-        radial-gradient(circle at top, rgba(69,182,83,.12), transparent 35%),
-        var(--bg);
-    color: var(--light);
-    font-family: Inter, Arial, sans-serif;
-    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1510;
+    color: #edf5ef;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* =========================
-   NAVBAR
+   NAVIGATION
 ========================= */
 
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(5,13,8,.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+
+    background: rgba(10, 22, 14, 0.96);
+    border-bottom: 1px solid #294a32;
+    backdrop-filter: blur(8px);
 }
 
-.nav-inner {
-    max-width: 1400px;
+.nav-container {
+    max-width: 1200px;
+    min-height: 70px;
+
     margin: auto;
-    padding: 17px 25px;
+    padding: 0 24px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    color: white;
-    text-decoration: none;
-    font-family: "Press Start 2P", monospace;
-    font-size: 15px;
+    color: #6ee878;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
 }
 
 .logo span {
-    color: var(--green);
+    color: white;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-weight: 700;
+    padding: 10px 13px;
+    border-radius: 7px;
+
+    color: #aebdb2;
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--green);
+    background: #1a3621;
+    color: #72e77b;
 }
 
 /* =========================
@@ -98,57 +96,101 @@ body {
 ========================= */
 
 .hero {
-    max-width: 1400px;
-    margin: auto;
-    padding: 55px 25px 30px;
-}
+    min-height: 620px;
 
-.hero-box {
-    text-align: center;
-    padding: 75px 30px;
-    border-radius: 22px;
-    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
 
     background:
         linear-gradient(
-            rgba(7,17,11,.35),
-            rgba(7,17,11,.9)
+            rgba(5, 15, 8, 0.58),
+            rgba(5, 15, 8, 0.92)
         ),
-        linear-gradient(
-            135deg,
-            #245a31,
-            #0d2415
-        );
+        url("images/minecraft-banner.jpg")
+        center / cover;
+
+    border-bottom: 1px solid #294a32;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.hero-label {
+    margin-bottom: 14px;
+
+    color: #6ee878;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
 .hero h1 {
-    font-family: "Press Start 2P", monospace;
-    font-size: clamp(25px, 5vw, 55px);
-    line-height: 1.4;
+    max-width: 850px;
+
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+
+    margin-bottom: 28px;
 }
 
 .hero h1 span {
-    color: var(--green);
+    color: #6ee878;
 }
 
 .hero p {
-    max-width: 800px;
-    margin: 22px auto 0;
-    color: var(--muted);
+    max-width: 670px;
+
+    margin-bottom: 32px;
+
+    color: #c1cec4;
     font-size: 18px;
-    line-height: 1.7;
 }
 
-.version {
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
     display: inline-block;
-    margin-top: 25px;
-    padding: 9px 15px;
-    border: 1px solid var(--green);
-    border-radius: 999px;
-    color: #9df0a5;
-    background: rgba(69,182,83,.1);
-    font-size: 12px;
-    font-weight: 800;
+
+    padding: 14px 21px;
+
+    border-radius: 8px;
+
+    font-weight: 900;
+
+    transition: 0.2s;
+}
+
+.button-primary {
+    background: #68dd70;
+    color: #071008;
+}
+
+.button-primary:hover {
+    background: #7beb83;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: rgba(12, 25, 16, 0.8);
+
+    border: 1px solid #47684e;
+
+    color: #d8e2da;
+}
+
+.button-secondary:hover {
+    background: #1a3621;
 }
 
 /* =========================
@@ -156,434 +198,265 @@ body {
 ========================= */
 
 .stats {
-    max-width: 1400px;
+    background: #101c14;
+    border-bottom: 1px solid #294a32;
+}
+
+.stats-container {
+    max-width: 1200px;
+
     margin: auto;
-    padding: 0 25px 30px;
+    padding: 27px 24px;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 
 .stat {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    padding: 20px;
     text-align: center;
 }
 
 .stat-number {
     display: block;
-    color: var(--green);
+
+    color: #6ee878;
+
     font-size: 29px;
-    font-weight: 800;
+    font-weight: 900;
 }
 
-.stat-label {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 4px;
-}
+.stat-text {
+    color: #7f9184;
 
-/* =========================
-   CONTROLS
-========================= */
-
-.controls {
-    max-width: 1400px;
-    margin: auto;
-    padding: 0 25px 35px;
-}
-
-.search {
-    width: 100%;
-    padding: 17px 19px;
-
-    background: var(--card);
-    color: white;
-
-    border: 1px solid var(--border);
-    border-radius: 11px;
-
-    outline: none;
-    font-size: 16px;
-}
-
-.search:focus {
-    border-color: var(--green);
-    box-shadow: 0 0 0 3px rgba(69,182,83,.12);
-}
-
-.filter-title {
-    margin: 22px 0 10px;
-    color: white;
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-}
-
-.filter {
-    cursor: pointer;
-
-    padding: 9px 14px;
-
-    color: var(--muted);
-    background: var(--card);
-
-    border: 1px solid var(--border);
-    border-radius: 8px;
-
-    font-weight: 700;
-}
-
-.filter:hover,
-.filter.active {
-    color: white;
-    background: var(--green2);
-    border-color: var(--green);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
 /* =========================
-   MOB GRID
+   SECTIONS
 ========================= */
 
-.container {
-    max-width: 1400px;
+.section {
+    max-width: 1200px;
+
     margin: auto;
-    padding: 0 25px 80px;
+    padding: 85px 24px;
 }
 
-.mob-grid {
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-label {
+    color: #6ee878;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 7px;
+
+    font-size: 40px;
+}
+
+.section-heading p {
+    max-width: 680px;
+
+    margin-top: 8px;
+
+    color: #899a8e;
+}
+
+/* =========================
+   GUIDE CARDS
+========================= */
+
+.guide-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.mob-card {
-    overflow: hidden;
+.guide-card {
+    padding: 27px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 11px;
+
+    transition: 0.25s;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    border-color: #69df73;
+}
+
+.guide-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    background: #193521;
+    color: #6ee878;
+
+    border-radius: 9px;
+
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.guide-card h3 {
+    margin-bottom: 9px;
+
+    font-size: 21px;
+}
+
+.guide-card p {
+    min-height: 76px;
+
+    color: #8e9e93;
+
+    margin-bottom: 17px;
+}
+
+.card-link {
+    color: #6ee878;
+
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   FEATURE
+========================= */
+
+.feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+.feature-image {
+    min-height: 350px;
 
     background:
         linear-gradient(
-            145deg,
-            var(--card2),
-            var(--card)
+            rgba(6, 18, 9, 0.15),
+            rgba(6, 18, 9, 0.85)
+        ),
+        url("images/minecraft-banner.jpg")
+        center / cover;
+
+    border: 1px solid #294a32;
+    border-radius: 13px;
+}
+
+.feature-content p {
+    margin: 15px 0 24px;
+
+    color: #92a196;
+}
+
+.feature-list {
+    list-style: none;
+
+    margin-bottom: 25px;
+}
+
+.feature-list li {
+    padding: 10px 0;
+
+    border-bottom: 1px solid #203728;
+
+    color: #b8c5bc;
+}
+
+.feature-list li::before {
+    content: "✓";
+
+    margin-right: 10px;
+
+    color: #6ee878;
+    font-weight: 900;
+}
+
+/* =========================
+   MODDING
+========================= */
+
+.mod-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.mod-card {
+    padding: 25px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 11px;
+}
+
+.mod-card h3 {
+    margin-bottom: 9px;
+}
+
+.mod-card p {
+    color: #8e9e93;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    max-width: 1150px;
+
+    margin: 0 auto 80px;
+    padding: 55px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1a3621,
+            #102518
         );
 
-    border: 1px solid var(--border);
-    border-radius: 15px;
+    border: 1px solid #3c6345;
+    border-radius: 14px;
 
-    cursor: pointer;
-
-    transition:
-        transform .2s,
-        border-color .2s,
-        box-shadow .2s;
-}
-
-.mob-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--green);
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.35);
-}
-
-.mob-image {
-    height: 190px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(69,182,83,.14),
-            transparent 65%
-        ),
-        #09180e;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.mob-image img {
-    width: 145px;
-    height: 145px;
-
-    object-fit: contain;
-
-    image-rendering: pixelated;
-}
-
-.mob-info {
-    padding: 17px;
-}
-
-.mob-name {
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.mob-id {
-    margin-top: 3px;
-    color: #77907e;
-    font-size: 11px;
-}
-
-.mob-description {
-    margin-top: 12px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-    line-height: 1.55;
-
-    min-height: 61px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-
-    margin-top: 13px;
-}
-
-.tag {
-    padding: 5px 8px;
-
-    border-radius: 5px;
-
-    background: #1c4026;
-    color: #a4e9ad;
-
-    font-size: 10px;
-    font-weight: 800;
-}
-
-.tag.hostile {
-    color: #ff9c9c;
-    background: rgba(224,82,82,.14);
-}
-
-.tag.neutral {
-    color: #f2d374;
-    background: rgba(230,193,90,.13);
-}
-
-.tag.boss {
-    color: #e0a5ef;
-    background: rgba(182,120,230,.13);
-}
-
-.tag.end {
-    color: #c5a5f0;
-}
-
-.tag.nether {
-    color: #ff9999;
-}
-
-.card-stats {
-    margin-top: 14px;
-
-    border-top: 1px solid var(--border);
-
-    padding-top: 12px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-
-.card-stat {
-    background: rgba(0,0,0,.13);
-    padding: 8px;
-    border-radius: 6px;
-}
-
-.card-stat small {
-    display: block;
-    color: #718278;
-    font-size: 10px;
-}
-
-.card-stat strong {
-    display: block;
-    margin-top: 2px;
-    font-size: 12px;
-}
-
-/* =========================
-   EMPTY
-========================= */
-
-.no-results {
-    display: none;
     text-align: center;
-    padding: 80px 20px;
 }
 
-.no-results h2 {
-    margin-bottom: 8px;
-}
-
-.no-results p {
-    color: var(--muted);
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 2000;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    background: rgba(0,0,0,.75);
-    backdrop-filter: blur(8px);
-}
-
-.modal.open {
-    display: flex;
-}
-
-.modal-box {
-    width: min(850px, 100%);
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    background: #0d2114;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    box-shadow: 0 30px 80px rgba(0,0,0,.55);
-}
-
-.modal-header {
-    padding: 25px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.modal-title {
-    font-size: 28px;
-    font-weight: 800;
-}
-
-.close {
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-.close:hover {
-    color: white;
-}
-
-.modal-body {
-    padding: 25px;
-}
-
-.modal-top {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 25px;
-}
-
-.modal-image {
-    min-height: 220px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(69,182,83,.15),
-            transparent
-        ),
-        #08170d;
-
-    border: 1px solid var(--border);
-}
-
-.modal-image img {
-    width: 180px;
-    height: 180px;
-
-    object-fit: contain;
-
-    image-rendering: pixelated;
-}
-
-.detail-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.detail {
-    padding: 12px;
-
-    background: rgba(255,255,255,.025);
-
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.detail-label {
-    display: block;
-    color: #718278;
-    font-size: 11px;
-    margin-bottom: 4px;
-}
-
-.detail-value {
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.modal-section {
-    margin-top: 25px;
-}
-
-.modal-section h3 {
+.cta h2 {
     margin-bottom: 9px;
-    color: var(--green);
+
+    font-size: 37px;
 }
 
-.modal-section p {
-    color: var(--muted);
-    line-height: 1.7;
+.cta p {
+    margin-bottom: 25px;
+
+    color: #aebcb2;
 }
 
 /* =========================
@@ -591,70 +464,93 @@ body {
 ========================= */
 
 footer {
-    padding: 35px 20px;
+    background: #08100b;
 
-    text-align: center;
+    border-top: 1px solid #203728;
 
-    border-top: 1px solid var(--border);
-
-    background: #040a06;
-
-    color: var(--muted);
+    padding: 35px 24px;
 }
 
-footer strong {
-    color: var(--green);
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-container p {
+    color: #6f8075;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #7f9085;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #6ee878;
 }
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
-@media(max-width:1100px) {
+@media (max-width: 850px) {
 
-    .mob-grid {
-        grid-template-columns: repeat(3,1fr);
-    }
-}
-
-@media(max-width:800px) {
-
-    .mob-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .stats {
-        grid-template-columns: repeat(2,1fr);
+    .nav-container {
+        flex-direction: column;
+        padding: 14px 20px;
+        gap: 10px;
     }
 
     .nav-links {
-        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .modal-top {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-grid,
+    .mod-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature {
         grid-template-columns: 1fr;
     }
 }
 
-@media(max-width:520px) {
+@media (max-width: 550px) {
 
-    .mob-grid {
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .guide-grid,
+    .mod-grid,
+    .stats-container {
         grid-template-columns: 1fr;
     }
 
-    .hero-box {
-        padding: 50px 18px;
+    .footer-container {
+        flex-direction: column;
     }
 
-    .stats {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .detail-grid {
-        grid-template-columns: 1fr;
-    }
 }
+
 </style>
+
 </head>
 
 <body>
@@ -665,7 +561,7 @@ footer strong {
 
 <nav class="navbar">
 
-    <div class="nav-inner">
+    <div class="nav-container">
 
         <a href="index.html" class="logo">
             MINECRAFT<span>-GUIDE</span>
@@ -673,16 +569,24 @@ footer strong {
 
         <div class="nav-links">
 
-            <a href="index.html">
+            <a href="index.html" class="active">
                 Home
             </a>
 
-            <a href="mobs.html" class="active">
+            <a href="#guides">
+                Guides
+            </a>
+
+            <a href="mobs.html">
                 Mobs
             </a>
 
-            <a href="#filters">
-                Categories
+            <a href="building.html">
+                Building
+            </a>
+
+            <a href="#modding">
+                Modding
             </a>
 
         </div>
@@ -696,90 +600,75 @@ footer strong {
      HERO
 ========================= -->
 
-<section class="hero">
+<header class="hero">
 
-    <div class="hero-box">
+    <div class="hero-container">
+
+        <div class="hero-label">
+            WELCOME TO MINECRAFT-GUIDE
+        </div>
 
         <h1>
-            MOB
-            <span>ENCYCLOPEDIA</span>
+            Learn Minecraft.<br>
+            <span>Build Better.</span>
         </h1>
 
         <p>
-            Explore Minecraft's creatures, enemies, bosses,
-            animals and special mobs. Search the database,
-            filter by behavior or dimension, and click a mob
-            to see its detailed information.
+            A beginner-friendly Minecraft guide covering
+            building, mobs, survival, PvE, PvP and modding.
+            Everything you need to become a better Minecraft player.
         </p>
 
-        <div class="version">
-            MINECRAFT JAVA 26.3 RC3 • UPDATED SEPTEMBER 2026
+        <div class="hero-buttons">
+
+            <a
+                href="building.html"
+                class="button button-primary"
+            >
+                Start Building
+            </a>
+
+            <a
+                href="mobs.html"
+                class="button button-secondary"
+            >
+                Explore Mobs
+            </a>
+
         </div>
 
     </div>
 
-</section>
+</header>
 
 
 <!-- =========================
-     STATISTICS
+     STATS
 ========================= -->
 
 <section class="stats">
 
-    <div class="stat">
+    <div class="stats-container">
 
-        <span
-            class="stat-number"
-            id="mobCount">
-            0
-        </span>
+        <div class="stat">
+            <span class="stat-number">01</span>
+            <span class="stat-text">BUILDING</span>
+        </div>
 
-        <span class="stat-label">
-            Mobs
-        </span>
+        <div class="stat">
+            <span class="stat-number">02</span>
+            <span class="stat-text">MOBS</span>
+        </div>
 
-    </div>
+        <div class="stat">
+            <span class="stat-number">03</span>
+            <span class="stat-text">SURVIVAL</span>
+        </div>
 
-    <div class="stat">
-
-        <span
-            class="stat-number"
-            id="passiveCount">
-            0
-        </span>
-
-        <span class="stat-label">
-            Passive
-        </span>
-
-    </div>
-
-    <div class="stat">
-
-        <span
-            class="stat-number"
-            id="hostileCount">
-            0
-        </span>
-
-        <span class="stat-label">
-            Hostile
-        </span>
-
-    </div>
-
-    <div class="stat">
-
-        <span
-            class="stat-number"
-            id="bossCount">
-            0
-        </span>
-
-        <span class="stat-label">
-            Bosses
-        </span>
+        <div class="stat">
+            <span class="stat-number">04</span>
+            <span class="stat-text">MODDING</span>
+        </div>
 
     </div>
 
@@ -787,218 +676,368 @@ footer strong {
 
 
 <!-- =========================
-     SEARCH + FILTERS
+     GUIDES
 ========================= -->
 
-<section
-    class="controls"
-    id="filters">
+<section class="section" id="guides">
 
-    <input
-        class="search"
-        id="search"
-        type="text"
-        placeholder="Search mobs, abilities, locations, drops..."
-    >
+    <div class="section-heading">
 
-    <div class="filter-title">
-        MOB TYPE
-    </div>
+        <div class="section-label">
+            MINECRAFT-GUIDE
+        </div>
 
-    <div class="filters">
-
-        <button
-            class="filter active"
-            data-filter="all">
-            All
-        </button>
-
-        <button
-            class="filter"
-            data-filter="passive">
-            Passive
-        </button>
-
-        <button
-            class="filter"
-            data-filter="neutral">
-            Neutral
-        </button>
-
-        <button
-            class="filter"
-            data-filter="hostile">
-            Hostile
-        </button>
-
-        <button
-            class="filter"
-            data-filter="boss">
-            Boss
-        </button>
-
-    </div>
-
-
-    <div class="filter-title">
-        DIMENSION
-    </div>
-
-    <div class="filters">
-
-        <button
-            class="filter"
-            data-filter="overworld">
-            Overworld
-        </button>
-
-        <button
-            class="filter"
-            data-filter="nether">
-            Nether
-        </button>
-
-        <button
-            class="filter"
-            data-filter="end">
-            End
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     MOB CONTENT
-========================= -->
-
-<main class="container">
-
-    <div
-        class="mob-grid"
-        id="mobGrid">
-    </div>
-
-    <div
-        class="no-results"
-        id="noResults">
-
-        <h2>
-            No mobs found
-        </h2>
+        <h2>Learn the Basics</h2>
 
         <p>
-            Try a different search or filter.
+            Choose a guide and start learning the parts
+            of Minecraft that interest you.
         </p>
 
     </div>
 
-</main>
+
+    <div class="guide-grid">
+
+
+        <!-- BUILDING -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                B
+            </div>
+
+            <h3>
+                Building
+            </h3>
+
+            <p>
+                Learn how to build better houses, bases,
+                roofs, interiors and detailed structures.
+            </p>
+
+            <a
+                href="building.html"
+                class="card-link"
+            >
+                Open Building Guide →
+            </a>
+
+        </article>
+
+
+        <!-- MOBS -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                M
+            </div>
+
+            <h3>
+                Mob Guide
+            </h3>
+
+            <p>
+                Learn about passive, neutral, hostile
+                and boss mobs with our advanced mob database.
+            </p>
+
+            <a
+                href="mobs.html"
+                class="card-link"
+            >
+                Open Mob Guide →
+            </a>
+
+        </article>
+
+
+        <!-- PVE -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                P
+            </div>
+
+            <h3>
+                PvE & Survival
+            </h3>
+
+            <p>
+                Learn how to survive your first nights,
+                explore dangerous areas and fight mobs.
+            </p>
+
+            <a
+                href="#guides"
+                class="card-link"
+            >
+                Coming Soon →
+            </a>
+
+        </article>
+
+
+        <!-- REDSTONE -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                R
+            </div>
+
+            <h3>
+                Redstone
+            </h3>
+
+            <p>
+                Learn the basics of redstone and how
+                simple Minecraft machines work.
+            </p>
+
+            <a
+                href="#guides"
+                class="card-link"
+            >
+                Coming Soon →
+            </a>
+
+        </article>
+
+
+        <!-- PVP -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                P
+            </div>
+
+            <h3>
+                PvP
+            </h3>
+
+            <p>
+                Learn general combat fundamentals,
+                movement and game awareness.
+            </p>
+
+            <a
+                href="#guides"
+                class="card-link"
+            >
+                Coming Soon →
+            </a>
+
+        </article>
+
+
+        <!-- MODDING -->
+
+        <article class="guide-card">
+
+            <div class="guide-icon">
+                M
+            </div>
+
+            <h3>
+                Modding
+            </h3>
+
+            <p>
+                Learn about resource packs, shaders,
+                modpacks and Minecraft customization.
+            </p>
+
+            <a
+                href="#modding"
+                class="card-link"
+            >
+                Learn More →
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
 
 
 <!-- =========================
-     MOB DETAILS MODAL
+     MOB FEATURE
 ========================= -->
 
-<div
-    class="modal"
-    id="modal">
+<section class="section">
 
-    <div class="modal-box">
+    <div class="feature">
 
-        <div class="modal-header">
+        <div class="feature-image"></div>
 
-            <div
-                class="modal-title"
-                id="modalTitle">
+        <div class="feature-content">
+
+            <div class="section-label">
+                ADVANCED MOB GUIDE
             </div>
 
-            <button
-                class="close"
-                id="closeModal">
-                ×
-            </button>
+            <h2>
+                Know Your Mobs
+            </h2>
 
-        </div>
+            <p>
+                Search through the Minecraft mob database,
+                filter mobs by behavior and open detailed
+                information about individual mobs.
+            </p>
 
-        <div class="modal-body">
+            <ul class="feature-list">
 
-            <div class="modal-top">
+                <li>
+                    Search for mobs
+                </li>
 
-                <div class="modal-image">
+                <li>
+                    Passive, Neutral, Hostile and Boss filters
+                </li>
 
-                    <img
-                        id="modalImage"
-                        alt=""
-                    >
+                <li>
+                    Health and attack information
+                </li>
 
-                </div>
+                <li>
+                    Habitat and useful drops
+                </li>
 
-                <div>
+                <li>
+                    Detailed information panels
+                </li>
 
-                    <div
-                        class="detail-grid"
-                        id="modalDetails">
-                    </div>
+            </ul>
 
-                </div>
-
-            </div>
-
-
-            <div class="modal-section">
-
-                <h3>
-                    Description
-                </h3>
-
-                <p id="modalDescription">
-                </p>
-
-            </div>
-
-
-            <div class="modal-section">
-
-                <h3>
-                    Special Information
-                </h3>
-
-                <p id="modalSpecial">
-                </p>
-
-            </div>
-
-
-            <div class="modal-section">
-
-                <h3>
-                    Spawn Information
-                </h3>
-
-                <p id="modalSpawn">
-                </p>
-
-            </div>
-
-
-            <div class="modal-section">
-
-                <h3>
-                    Drops
-                </h3>
-
-                <p id="modalDrops">
-                </p>
-
-            </div>
+            <a
+                href="mobs.html"
+                class="button button-primary"
+            >
+                Explore Mob Guide
+            </a>
 
         </div>
 
     </div>
 
-</div>
+</section>
+
+
+<!-- =========================
+     MODDING
+========================= -->
+
+<section
+    class="section"
+    id="modding"
+>
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            CUSTOMIZE MINECRAFT
+        </div>
+
+        <h2>
+            Modding
+        </h2>
+
+        <p>
+            Learn the basics of changing and customizing
+            your Minecraft experience.
+        </p>
+
+    </div>
+
+
+    <div class="mod-grid">
+
+        <article class="mod-card">
+
+            <h3>
+                Resource Packs
+            </h3>
+
+            <p>
+                Learn how resource packs can change
+                Minecraft textures, sounds and visuals.
+            </p>
+
+        </article>
+
+
+        <article class="mod-card">
+
+            <h3>
+                Shaders
+            </h3>
+
+            <p>
+                Learn what shaders do and how they
+                can change Minecraft's visual appearance.
+            </p>
+
+        </article>
+
+
+        <article class="mod-card">
+
+            <h3>
+                Modpacks
+            </h3>
+
+            <p>
+                Learn how collections of mods can
+                create completely different Minecraft experiences.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <h2>
+        Ready to Start?
+    </h2>
+
+    <p>
+        Pick a guide and start learning Minecraft.
+    </p>
+
+    <div class="hero-buttons" style="justify-content:center;">
+
+        <a
+            href="building.html"
+            class="button button-primary"
+        >
+            Learn Building
+        </a>
+
+        <a
+            href="mobs.html"
+            class="button button-secondary"
+        >
+            Browse Mobs
+        </a>
+
+    </div>
+
+</section>
 
 
 <!-- =========================
@@ -1007,1492 +1046,36 @@ footer strong {
 
 <footer>
 
-    <p>
-        <strong>Minecraft-guide</strong>
-        — Your Minecraft learning resource.
-    </p>
+    <div class="footer-container">
 
-    <p style="margin-top:9px;font-size:12px;">
-        Minecraft is a trademark of Mojang Studios.
-        This fan-made website is not affiliated with Mojang
-        or Microsoft.
-    </p>
+        <p>
+            © 2026 Minecraft-guide.
+            Fan-made Minecraft resource.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="mobs.html">
+                Mobs
+            </a>
+
+            <a href="building.html">
+                Building
+            </a>
+
+            <a href="index.html#modding">
+                Modding
+            </a>
+
+        </div>
+
+    </div>
 
 </footer>
-
-
-<script>
-
-/* ========================================================
-   MOB DATABASE
-======================================================== */
-
-const mobs = [
-
-/* ================= PASSIVE ================= */
-
-{
-    name:"Allay",
-    id:"allay",
-    type:"passive",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"None",
-    spawn:"Pillager Outposts / Woodland Mansions",
-    drops:"None",
-    description:"A small flying helper mob that can collect items matching an item given to it.",
-    special:"Can dance and duplicate using an Amethyst Shard under the correct conditions."
-},
-
-{
-    name:"Armadillo",
-    id:"armadillo",
-    type:"passive",
-    dimension:"overworld",
-    health:"14 HP",
-    attack:"None",
-    spawn:"Savanna / Badlands",
-    drops:"Armadillo Scute",
-    description:"A peaceful mob that curls into a ball when it detects danger.",
-    special:"Scutes are used to craft Wolf Armor."
-},
-
-{
-    name:"Axolotl",
-    id:"axolotl",
-    type:"passive",
-    dimension:"overworld",
-    health:"14 HP",
-    attack:"2 HP",
-    spawn:"Lush Caves",
-    drops:"None",
-    description:"An aquatic amphibian that attacks certain underwater enemies.",
-    special:"Can play dead and regenerate."
-},
-
-{
-    name:"Bat",
-    id:"bat",
-    type:"passive",
-    dimension:"overworld",
-    health:"6 HP",
-    attack:"None",
-    spawn:"Caves",
-    drops:"None",
-    description:"A small flying ambient mob commonly found underground.",
-    special:"Primarily an ambient creature."
-},
-
-{
-    name:"Camel",
-    id:"camel",
-    type:"passive",
-    dimension:"overworld",
-    health:"32 HP",
-    attack:"None",
-    spawn:"Desert Villages",
-    drops:"None",
-    description:"A rideable desert animal capable of carrying two players.",
-    special:"Has a dash ability and is tall enough to keep riders above many ground-level attacks."
-},
-
-{
-    name:"Cat",
-    id:"cat",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Villages / Swamp Huts",
-    drops:"None",
-    description:"A tameable animal with multiple coat patterns.",
-    special:"Tamed cats can scare away Creepers and Phantoms."
-},
-
-{
-    name:"Chicken",
-    id:"chicken",
-    type:"passive",
-    dimension:"overworld",
-    health:"4 HP",
-    attack:"None",
-    spawn:"Overworld",
-    drops:"Feather / Raw Chicken",
-    description:"A common farm animal that lays eggs.",
-    special:"Falls slowly because of its flapping wings."
-},
-
-{
-    name:"Cod",
-    id:"cod",
-    type:"passive",
-    dimension:"overworld",
-    health:"3 HP",
-    attack:"None",
-    spawn:"Oceans / Rivers",
-    drops:"Raw Cod",
-    description:"A common fish found in ocean environments.",
-    special:"Can be captured with a Water Bucket."
-},
-
-{
-    name:"Cow",
-    id:"cow",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Overworld",
-    drops:"Leather / Raw Beef",
-    description:"One of Minecraft's most useful early-game farm animals.",
-    special:"Can provide milk using a bucket."
-},
-
-{
-    name:"Dolphin",
-    id:"dolphin",
-    type:"neutral",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"2 HP",
-    spawn:"Non-Frozen Oceans",
-    drops:"None",
-    description:"A fast aquatic mob that can help players locate structures.",
-    special:"Nearby swimming players can receive Dolphin's Grace."
-},
-
-{
-    name:"Donkey",
-    id:"donkey",
-    type:"passive",
-    dimension:"overworld",
-    health:"15–30 HP",
-    attack:"None",
-    spawn:"Plains / Savannas",
-    drops:"Leather",
-    description:"A rideable horse relative that can carry a chest.",
-    special:"Can transport items using a chest."
-},
-
-{
-    name:"Fox",
-    id:"fox",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"Variable",
-    spawn:"Taiga",
-    drops:"None",
-    description:"A quick nocturnal animal capable of picking up items.",
-    special:"Can hold items in its mouth."
-},
-
-{
-    name:"Frog",
-    id:"frog",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Swamps / Mangrove Swamps",
-    drops:"None",
-    description:"An amphibious mob with variants determined by temperature.",
-    special:"Can eat small Slimes and Magma Cubes."
-},
-
-{
-    name:"Glow Squid",
-    id:"glow_squid",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Underground Water",
-    drops:"Glow Ink Sac",
-    description:"An aquatic squid with a glowing appearance.",
-    special:"Produces Glow Ink Sacs."
-},
-
-{
-    name:"Goat",
-    id:"goat",
-    type:"neutral",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"2 HP",
-    spawn:"Jagged Peaks / Mountains",
-    drops:"None",
-    description:"A mountain animal capable of very high jumps.",
-    special:"Can ram entities and may drop Goat Horns."
-},
-
-{
-    name:"Happy Ghast",
-    id:"happy_ghast",
-    type:"passive",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"None",
-    spawn:"Happy Ghast mechanics",
-    drops:"None",
-    description:"A friendly flying ghast-like mob used for aerial exploration and building.",
-    special:"Can be ridden."
-},
-
-{
-    name:"Horse",
-    id:"horse",
-    type:"passive",
-    dimension:"overworld",
-    health:"15–30 HP",
-    attack:"None",
-    spawn:"Plains / Savannas",
-    drops:"Leather",
-    description:"A rideable animal with different colors and movement statistics.",
-    special:"Can wear Horse Armor."
-},
-
-{
-    name:"Iron Golem",
-    id:"iron_golem",
-    type:"neutral",
-    dimension:"overworld",
-    health:"100 HP",
-    attack:"7–21 HP",
-    spawn:"Villages / Player Creation",
-    drops:"Iron Ingots / Poppy",
-    description:"A powerful protector that attacks threats to villagers.",
-    special:"Can be constructed by players using Iron Blocks and a Carved Pumpkin."
-},
-
-{
-    name:"Llama",
-    id:"llama",
-    type:"neutral",
-    dimension:"overworld",
-    health:"15 HP",
-    attack:"1 HP",
-    spawn:"Windswept Hills / Savannas",
-    drops:"Leather",
-    description:"A pack animal capable of carrying items.",
-    special:"Tamed llamas can form caravans."
-},
-
-{
-    name:"Mooshroom",
-    id:"mooshroom",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Mushroom Fields",
-    drops:"Leather / Beef",
-    description:"A mushroom-covered cow variant.",
-    special:"Can provide Mushroom Stew."
-},
-
-{
-    name:"Mule",
-    id:"mule",
-    type:"passive",
-    dimension:"overworld",
-    health:"15–30 HP",
-    attack:"None",
-    spawn:"Horse + Donkey Breeding",
-    drops:"Leather",
-    description:"A horse-donkey hybrid.",
-    special:"Can carry a chest."
-},
-
-{
-    name:"Nautilus",
-    id:"nautilus",
-    type:"passive",
-    dimension:"overworld",
-    health:"16 HP",
-    attack:"None",
-    spawn:"Ocean environments",
-    drops:"Nautilus Shell",
-    description:"An aquatic mob associated with the newer ocean gameplay.",
-    special:"Can interact with the newer Nautilus riding mechanics."
-},
-
-{
-    name:"Ocelot",
-    id:"ocelot",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Jungles",
-    drops:"None",
-    description:"A shy jungle animal that can gain a player's trust.",
-    special:"Untamed Ocelots can scare Creepers."
-},
-
-{
-    name:"Panda",
-    id:"panda",
-    type:"neutral",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"4 HP",
-    spawn:"Jungles",
-    drops:"Bamboo",
-    description:"A bamboo-eating animal with several personality variants.",
-    special:"Personality affects behavior."
-},
-
-{
-    name:"Parrot",
-    id:"parrot",
-    type:"passive",
-    dimension:"overworld",
-    health:"6 HP",
-    attack:"None",
-    spawn:"Jungles",
-    drops:"None",
-    description:"A tameable flying bird with several colors.",
-    special:"Can imitate nearby hostile mob sounds."
-},
-
-{
-    name:"Pig",
-    id:"pig",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Overworld",
-    drops:"Raw Porkchop",
-    description:"A classic farm animal that can be ridden.",
-    special:"Can be controlled with a Carrot on a Stick."
-},
-
-{
-    name:"Polar Bear",
-    id:"polar_bear",
-    type:"neutral",
-    dimension:"overworld",
-    health:"30 HP",
-    attack:"4–6 HP",
-    spawn:"Snowy Biomes",
-    drops:"Raw Fish",
-    description:"A large cold-biome animal.",
-    special:"Adults can defend their cubs aggressively."
-},
-
-{
-    name:"Pufferfish",
-    id:"pufferfish",
-    type:"passive",
-    dimension:"overworld",
-    health:"3 HP",
-    attack:"Poison",
-    spawn:"Warm Oceans",
-    drops:"Pufferfish",
-    description:"A small fish that inflates when threatened.",
-    special:"Can poison nearby entities when inflated."
-},
-
-{
-    name:"Rabbit",
-    id:"rabbit",
-    type:"passive",
-    dimension:"overworld",
-    health:"3 HP",
-    attack:"None",
-    spawn:"Various Overworld Biomes",
-    drops:"Rabbit / Rabbit Hide",
-    description:"A small animal with several variants.",
-    special:"Some variants have special appearances."
-},
-
-{
-    name:"Salmon",
-    id:"salmon",
-    type:"passive",
-    dimension:"overworld",
-    health:"3 HP",
-    attack:"None",
-    spawn:"Cold Oceans / Rivers",
-    drops:"Raw Salmon",
-    description:"A common aquatic fish.",
-    special:"Can be captured in a bucket."
-},
-
-{
-    name:"Sheep",
-    id:"sheep",
-    type:"passive",
-    dimension:"overworld",
-    health:"8 HP",
-    attack:"None",
-    spawn:"Overworld",
-    drops:"Wool / Raw Mutton",
-    description:"A common farm animal that supplies wool.",
-    special:"Can be sheared without killing it."
-},
-
-{
-    name:"Sniffer",
-    id:"sniffer",
-    type:"passive",
-    dimension:"overworld",
-    health:"14 HP",
-    attack:"None",
-    spawn:"Sniffer Eggs",
-    drops:"Moss Block",
-    description:"An ancient mob that searches the ground for rare plants.",
-    special:"Can uncover Torchflower Seeds and Pitcher Pods."
-},
-
-{
-    name:"Snow Golem",
-    id:"snow_golem",
-    type:"passive",
-    dimension:"overworld",
-    health:"4 HP",
-    attack:"Snowballs",
-    spawn:"Player Creation",
-    drops:"Snowballs",
-    description:"A player-created snow creature.",
-    special:"Throws snowballs at hostile mobs."
-},
-
-{
-    name:"Squid",
-    id:"squid",
-    type:"passive",
-    dimension:"overworld",
-    health:"10 HP",
-    attack:"None",
-    spawn:"Water",
-    drops:"Ink Sac",
-    description:"A common aquatic mob.",
-    special:"Produces Ink Sacs."
-},
-
-{
-    name:"Strider",
-    id:"strider",
-    type:"passive",
-    dimension:"nether",
-    health:"20 HP",
-    attack:"None",
-    spawn:"Lava Oceans",
-    drops:"String",
-    description:"A lava-walking mob found throughout the Nether.",
-    special:"Can walk across lava and be ridden."
-},
-
-{
-    name:"Tadpole",
-    id:"tadpole",
-    type:"passive",
-    dimension:"overworld",
-    health:"6 HP",
-    attack:"None",
-    spawn:"Frog Breeding",
-    drops:"None",
-    description:"The baby stage of a Frog.",
-    special:"Its eventual Frog variant depends on where it grows."
-},
-
-{
-    name:"Tropical Fish",
-    id:"tropical_fish",
-    type:"passive",
-    dimension:"overworld",
-    health:"3 HP",
-    attack:"None",
-    spawn:"Warm Oceans",
-    drops:"Tropical Fish",
-    description:"A colorful fish with many possible appearances.",
-    special:"Can be caught in a bucket."
-},
-
-{
-    name:"Turtle",
-    id:"turtle",
-    type:"passive",
-    dimension:"overworld",
-    health:"30 HP",
-    attack:"None",
-    spawn:"Beaches",
-    drops:"Seagrass",
-    description:"A slow aquatic reptile that returns to its home beach.",
-    special:"Baby turtles eventually produce Scutes."
-},
-
-{
-    name:"Villager",
-    id:"villager",
-    type:"passive",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"None",
-    spawn:"Villages",
-    drops:"None",
-    description:"An NPC with professions, trading and village behavior.",
-    special:"Trades can provide valuable resources and enchanted items."
-},
-
-{
-    name:"Wandering Trader",
-    id:"wandering_trader",
-    type:"passive",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"None",
-    spawn:"Random Overworld Events",
-    drops:"None",
-    description:"A travelling merchant that appears periodically.",
-    special:"Travels with two Trader Llamas."
-},
-
-{
-    name:"Wolf",
-    id:"wolf",
-    type:"neutral",
-    dimension:"overworld",
-    health:"8–40 HP",
-    attack:"3–4 HP",
-    spawn:"Taiga / Other Biomes",
-    drops:"None",
-    description:"A tameable canine companion.",
-    special:"Tamed wolves can fight for their owner and can wear Wolf Armor."
-},
-
-/* ================= NEUTRAL ================= */
-
-{
-    name:"Enderman",
-    id:"enderman",
-    type:"neutral",
-    dimension:"end",
-    health:"40 HP",
-    attack:"7–21 HP",
-    spawn:"Overworld / Nether / End",
-    drops:"Ender Pearl",
-    description:"A tall teleporting creature.",
-    special:"Becomes hostile when directly looked at and can teleport."
-},
-
-{
-    name:"Hoglin",
-    id:"hoglin",
-    type:"hostile",
-    dimension:"nether",
-    health:"40 HP",
-    attack:"4–9 HP",
-    spawn:"Crimson Forests",
-    drops:"Leather / Raw Porkchop",
-    description:"A large Nether creature that attacks nearby targets.",
-    special:"Warped Fungi can repel Hoglins."
-},
-
-{
-    name:"Piglin",
-    id:"piglin",
-    type:"neutral",
-    dimension:"nether",
-    health:"16 HP",
-    attack:"5–9 HP",
-    spawn:"Nether Wastes / Bastions",
-    drops:"Various",
-    description:"A gold-loving Nether mob.",
-    special:"Wearing at least one piece of Gold Armor can prevent ordinary Piglins from attacking immediately."
-},
-
-{
-    name:"Spider",
-    id:"spider",
-    type:"neutral",
-    dimension:"overworld",
-    health:"16 HP",
-    attack:"2–3 HP",
-    spawn:"Overworld",
-    drops:"String / Spider Eye",
-    description:"A climbing mob that can become hostile in darkness.",
-    special:"Can climb walls."
-},
-
-/* ================= HOSTILE ================= */
-
-{
-    name:"Blaze",
-    id:"blaze",
-    type:"hostile",
-    dimension:"nether",
-    health:"20 HP",
-    attack:"Fireballs",
-    spawn:"Nether Fortresses",
-    drops:"Blaze Rod",
-    description:"A floating Nether mob that attacks with fire.",
-    special:"Can fly and launch fireballs."
-},
-
-{
-    name:"Bogged",
-    id:"bogged",
-    type:"hostile",
-    dimension:"overworld",
-    health:"16 HP",
-    attack:"Poison Arrows",
-    spawn:"Swamps / Trial Chambers",
-    drops:"Bones / Arrows",
-    description:"A swamp-themed Skeleton variant.",
-    special:"Uses poisonous arrows."
-},
-
-{
-    name:"Breeze",
-    id:"breeze",
-    type:"hostile",
-    dimension:"overworld",
-    health:"30 HP",
-    attack:"Wind Charge",
-    spawn:"Trial Chambers",
-    drops:"Breeze Rod",
-    description:"A wind-powered hostile mob.",
-    special:"Uses wind attacks and can knock entities around."
-},
-
-{
-    name:"Cave Spider",
-    id:"cave_spider",
-    type:"hostile",
-    dimension:"overworld",
-    health:"12 HP",
-    attack:"2–3 HP + Poison",
-    spawn:"Abandoned Mineshafts",
-    drops:"String / Spider Eye",
-    description:"A poisonous spider variant.",
-    special:"Can climb walls and poison players."
-},
-
-{
-    name:"Creeper",
-    id:"creeper",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"Explosion",
-    spawn:"Overworld",
-    drops:"Gunpowder",
-    description:"A silent hostile mob famous for its explosion.",
-    special:"Charges up and explodes when close to its target."
-},
-
-{
-    name:"Drowned",
-    id:"drowned",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"Melee / Trident",
-    spawn:"Oceans / Rivers",
-    drops:"Rotten Flesh / Copper",
-    description:"An underwater Zombie variant.",
-    special:"Some Drowned can spawn with Tridents."
-},
-
-{
-    name:"Elder Guardian",
-    id:"elder_guardian",
-    type:"hostile",
-    dimension:"overworld",
-    health:"80 HP",
-    attack:"Laser",
-    spawn:"Ocean Monuments",
-    drops:"Prismarine Items",
-    description:"A powerful Guardian variant that protects Ocean Monuments.",
-    special:"Applies Mining Fatigue to nearby players."
-},
-
-{
-    name:"Endermite",
-    id:"endermite",
-    type:"hostile",
-    dimension:"end",
-    health:"8 HP",
-    attack:"2 HP",
-    spawn:"Ender Pearl Teleportation",
-    drops:"None",
-    description:"A tiny hostile creature that may appear when an Ender Pearl is used.",
-    special:"Endermen are hostile toward Endermites."
-},
-
-{
-    name:"Evoker",
-    id:"evoker",
-    type:"hostile",
-    dimension:"overworld",
-    health:"24 HP",
-    attack:"Magic",
-    spawn:"Woodland Mansions / Raids",
-    drops:"Totem of Undying",
-    description:"A powerful spellcasting Illager.",
-    special:"Can summon Vexes and magical fangs."
-},
-
-{
-    name:"Ghast",
-    id:"ghast",
-    type:"hostile",
-    dimension:"nether",
-    health:"10 HP",
-    attack:"Fireball",
-    spawn:"Nether",
-    drops:"Ghast Tear / Gunpowder",
-    description:"A giant floating Nether creature.",
-    special:"Fires explosive projectiles."
-},
-
-{
-    name:"Guardian",
-    id:"guardian",
-    type:"hostile",
-    dimension:"overworld",
-    health:"30 HP",
-    attack:"Laser",
-    spawn:"Ocean Monuments",
-    drops:"Prismarine / Fish",
-    description:"An aquatic defender of Ocean Monuments.",
-    special:"Uses a charging laser attack."
-},
-
-{
-    name:"Husk",
-    id:"husk",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"3 HP",
-    spawn:"Deserts",
-    drops:"Rotten Flesh",
-    description:"A desert variant of the Zombie.",
-    special:"Melee attacks can apply Hunger."
-},
-
-{
-    name:"Magma Cube",
-    id:"magma_cube",
-    type:"hostile",
-    dimension:"nether",
-    health:"Variable",
-    attack:"Variable",
-    spawn:"Nether",
-    drops:"Magma Cream",
-    description:"A fiery cube that splits into smaller versions.",
-    special:"Immune to fire and lava."
-},
-
-{
-    name:"Phantom",
-    id:"phantom",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"6 HP",
-    spawn:"Night sky after not sleeping",
-    drops:"Phantom Membrane",
-    description:"A flying undead creature that hunts players who have not slept.",
-    special:"Phantom Membranes can repair Elytra."
-},
-
-{
-    name:"Piglin Brute",
-    id:"piglin_brute",
-    type:"hostile",
-    dimension:"nether",
-    health:"50 HP",
-    attack:"13 HP",
-    spawn:"Bastion Remnants",
-    drops:"Gold-related Loot",
-    description:"A heavily armed Piglin guard.",
-    special:"Does not become peaceful just because the player wears Gold Armor."
-},
-
-{
-    name:"Pillager",
-    id:"pillager",
-    type:"hostile",
-    dimension:"overworld",
-    health:"24 HP",
-    attack:"Crossbow",
-    spawn:"Pillager Outposts / Raids",
-    drops:"Emerald / Crossbow",
-    description:"A ranged Illager.",
-    special:"Can participate in village raids."
-},
-
-{
-    name:"Ravager",
-    id:"ravager",
-    type:"hostile",
-    dimension:"overworld",
-    health:"100 HP",
-    attack:"12 HP",
-    spawn:"Raids",
-    drops:"Saddle",
-    description:"A huge beast used by Raiders.",
-    special:"Powerful melee attacks can knock players backward."
-},
-
-{
-    name:"Shulker",
-    id:"shulker",
-    type:"hostile",
-    dimension:"end",
-    health:"30 HP",
-    attack:"Shulker Bullet",
-    spawn:"End Cities",
-    drops:"Shulker Shell",
-    description:"A defensive End mob that hides inside a shell.",
-    special:"Shulker bullets cause Levitation."
-},
-
-{
-    name:"Silverfish",
-    id:"silverfish",
-    type:"hostile",
-    dimension:"overworld",
-    health:"8 HP",
-    attack:"1 HP",
-    spawn:"Strongholds / Infested Blocks",
-    drops:"None",
-    description:"A tiny hostile insect.",
-    special:"Can call nearby Silverfish when attacked."
-},
-
-{
-    name:"Skeleton",
-    id:"skeleton",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"Bow",
-    spawn:"Overworld",
-    drops:"Bones / Arrows / Bow",
-    description:"A ranged undead enemy.",
-    special:"Uses a bow and can equip armor."
-},
-
-{
-    name:"Slime",
-    id:"slime",
-    type:"hostile",
-    dimension:"overworld",
-    health:"Variable",
-    attack:"Variable",
-    spawn:"Swamps / Slime Chunks",
-    drops:"Slimeball",
-    description:"A bouncing cube that splits into smaller Slimes.",
-    special:"Large Slimes split when defeated."
-},
-
-{
-    name:"Stray",
-    id:"stray",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"Bow",
-    spawn:"Snowy Biomes",
-    drops:"Bones / Arrows",
-    description:"A cold-biome Skeleton variant.",
-    special:"Uses arrows of Slowness."
-},
-
-{
-    name:"Vex",
-    id:"vex",
-    type:"hostile",
-    dimension:"overworld",
-    health:"14 HP",
-    attack:"5.5 HP",
-    spawn:"Evoker Summoning",
-    drops:"None",
-    description:"A small flying mob summoned by Evokers.",
-    special:"Can pass through solid blocks."
-},
-
-{
-    name:"Vindicator",
-    id:"vindicator",
-    type:"hostile",
-    dimension:"overworld",
-    health:"24 HP",
-    attack:"13 HP",
-    spawn:"Woodland Mansions / Raids",
-    drops:"Emerald / Iron Axe",
-    description:"An Illager carrying an axe.",
-    special:"Has powerful melee attacks."
-},
-
-{
-    name:"Witch",
-    id:"witch",
-    type:"hostile",
-    dimension:"overworld",
-    health:"26 HP",
-    attack:"Potions",
-    spawn:"Swamps / Raids / Other Events",
-    drops:"Various",
-    description:"A potion-using hostile mob.",
-    special:"Throws harmful potions and drinks helpful ones."
-},
-
-{
-    name:"Wither Skeleton",
-    id:"wither_skeleton",
-    type:"hostile",
-    dimension:"nether",
-    health:"20 HP",
-    attack:"5–12 HP",
-    spawn:"Nether Fortresses",
-    drops:"Bones / Coal / Rare Skull",
-    description:"A tall black Skeleton variant.",
-    special:"Attacks apply the Wither effect."
-},
-
-{
-    name:"Zoglin",
-    id:"zoglin",
-    type:"hostile",
-    dimension:"nether",
-    health:"40 HP",
-    attack:"9 HP",
-    spawn:"Converted Hoglins",
-    drops:"Rotten Flesh",
-    description:"An undead Hoglin variant.",
-    special:"Aggressive toward many nearby entities."
-},
-
-{
-    name:"Zombie",
-    id:"zombie",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"3 HP",
-    spawn:"Overworld",
-    drops:"Rotten Flesh",
-    description:"A basic undead hostile mob.",
-    special:"Can pick up weapons, armor and certain items."
-},
-
-{
-    name:"Zombie Villager",
-    id:"zombie_villager",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"3 HP",
-    spawn:"Overworld",
-    drops:"Rotten Flesh",
-    description:"An undead Villager.",
-    special:"Can be cured back into a Villager."
-},
-
-/* ================= BOSSES ================= */
-
-{
-    name:"Ender Dragon",
-    id:"ender_dragon",
-    type:"boss",
-    dimension:"end",
-    health:"200 HP",
-    attack:"Very High",
-    spawn:"The End",
-    drops:"Dragon Egg / XP",
-    description:"The major boss of the End dimension.",
-    special:"Flies around the End and uses several powerful attacks."
-},
-
-{
-    name:"Wither",
-    id:"wither",
-    type:"boss",
-    dimension:"overworld",
-    health:"300 HP",
-    attack:"Very High",
-    spawn:"Player Creation",
-    drops:"Nether Star",
-    description:"A powerful undead boss created by the player.",
-    special:"Fires explosive skulls and applies the Wither effect."
-},
-
-{
-    name:"Warden",
-    id:"warden",
-    type:"boss",
-    dimension:"overworld",
-    health:"500 HP",
-    attack:"Extremely High",
-    spawn:"Deep Dark",
-    drops:"Sculk Catalyst",
-    description:"A terrifying creature that hunts using vibrations and sound.",
-    special:"Uses melee attacks and a ranged Sonic Boom."
-},
-
-/* ================= 26.2 ================= */
-
-{
-    name:"Sulfur Cube",
-    id:"sulfur_cube",
-    type:"passive",
-    dimension:"overworld",
-    health:"Special",
-    attack:"Special",
-    spawn:"Sulfur Caves",
-    drops:"None",
-    description:"A physics-driven cube mob introduced with the Chaos Cubed drop.",
-    special:"Absorbs blocks and changes physical properties. Known forms include Sticky, Bouncy, Explosive, Hot and Slippery."
-},
-
-/* ================= NEWER VARIANTS ================= */
-
-{
-    name:"Camel Husk",
-    id:"camel_husk",
-    type:"hostile",
-    dimension:"overworld",
-    health:"Special",
-    attack:"Special",
-    spawn:"Desert environments",
-    drops:"Special",
-    description:"A newer desert-themed hostile camel variant.",
-    special:"Combines camel-like movement with hostile behavior."
-},
-
-{
-    name:"Parched",
-    id:"parched",
-    type:"hostile",
-    dimension:"overworld",
-    health:"20 HP",
-    attack:"Ranged",
-    spawn:"Dry desert environments",
-    drops:"Bones / Arrows",
-    description:"A desert-themed Skeleton variant.",
-    special:"Uses ranged attacks."
-},
-
-{
-    name:"Zombie Horse",
-    id:"zombie_horse",
-    type:"passive",
-    dimension:"overworld",
-    health:"15–30 HP",
-    attack:"None",
-    spawn:"Special / Player Interaction",
-    drops:"Rotten Flesh",
-    description:"An undead horse variant.",
-    special:"Can be ridden when properly obtained."
-},
-
-{
-    name:"Zombie Nautilus",
-    id:"zombie_nautilus",
-    type:"hostile",
-    dimension:"overworld",
-    health:"Special",
-    attack:"Special",
-    spawn:"Ocean environments",
-    drops:"Special",
-    description:"An undead aquatic Nautilus variant.",
-    special:"Combines aquatic movement with undead behavior."
-}
-
-];
-
-
-/* ========================================================
-   IMAGE SYSTEM
-======================================================== */
-
-function mobImage(mob) {
-
-    return "https://minecraft.wiki/images/EntitySprite_" +
-        mob.id +
-        ".png";
-}
-
-
-/* ========================================================
-   CREATE CARD
-======================================================== */
-
-function createCard(mob) {
-
-    const card =
-        document.createElement("article");
-
-    card.className = "mob-card";
-
-    card.innerHTML = `
-
-        <div class="mob-image">
-
-            <img
-                src="${mobImage(mob)}"
-                alt="${mob.name}"
-                loading="lazy"
-                onerror="this.style.display='none'"
-            >
-
-        </div>
-
-        <div class="mob-info">
-
-            <div class="mob-name">
-                ${mob.name}
-            </div>
-
-            <div class="mob-id">
-                minecraft:${mob.id}
-            </div>
-
-            <p class="mob-description">
-                ${mob.description}
-            </p>
-
-            <div class="tags">
-
-                <span class="tag ${mob.type}">
-                    ${mob.type.toUpperCase()}
-                </span>
-
-                <span class="tag ${mob.dimension}">
-                    ${mob.dimension.toUpperCase()}
-                </span>
-
-            </div>
-
-            <div class="card-stats">
-
-                <div class="card-stat">
-                    <small>HEALTH</small>
-                    <strong>${mob.health}</strong>
-                </div>
-
-                <div class="card-stat">
-                    <small>ATTACK</small>
-                    <strong>${mob.attack}</strong>
-                </div>
-
-            </div>
-
-        </div>
-    `;
-
-    card.addEventListener(
-        "click",
-        () => openModal(mob)
-    );
-
-    return card;
-}
-
-
-/* ========================================================
-   DISPLAY
-======================================================== */
-
-const grid =
-    document.getElementById("mobGrid");
-
-const noResults =
-    document.getElementById("noResults");
-
-let currentFilter = "all";
-
-function displayMobs(list) {
-
-    grid.innerHTML = "";
-
-    list.forEach(mob => {
-
-        grid.appendChild(
-            createCard(mob)
-        );
-
-    });
-
-    noResults.style.display =
-        list.length === 0
-            ? "block"
-            : "none";
-}
-
-
-/* ========================================================
-   SEARCH
-======================================================== */
-
-const search =
-    document.getElementById("search");
-
-function updateResults() {
-
-    const query =
-        search.value
-            .toLowerCase()
-            .trim();
-
-    const filtered =
-        mobs.filter(mob => {
-
-            const searchable = (
-
-                mob.name + " " +
-                mob.id + " " +
-                mob.type + " " +
-                mob.dimension + " " +
-                mob.health + " " +
-                mob.attack + " " +
-                mob.spawn + " " +
-                mob.drops + " " +
-                mob.description + " " +
-                mob.special
-
-            ).toLowerCase();
-
-            const matchesSearch =
-                searchable.includes(query);
-
-            const matchesFilter =
-                currentFilter === "all" ||
-                mob.type === currentFilter ||
-                mob.dimension === currentFilter;
-
-            return (
-                matchesSearch &&
-                matchesFilter
-            );
-
-        });
-
-    displayMobs(filtered);
-}
-
-search.addEventListener(
-    "input",
-    updateResults
-);
-
-
-/* ========================================================
-   FILTER BUTTONS
-======================================================== */
-
-document
-    .querySelectorAll(".filter")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(".filter")
-                    .forEach(btn =>
-                        btn.classList.remove("active")
-                    );
-
-                button.classList.add("active");
-
-                currentFilter =
-                    button.dataset.filter;
-
-                updateResults();
-            }
-        );
-
-    });
-
-
-/* ========================================================
-   MODAL
-======================================================== */
-
-const modal =
-    document.getElementById("modal");
-
-const closeModalButton =
-    document.getElementById("closeModal");
-
-function openModal(mob) {
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent = mob.name;
-
-    document.getElementById(
-        "modalImage"
-    ).src = mobImage(mob);
-
-    document.getElementById(
-        "modalImage"
-    ).alt = mob.name;
-
-    document.getElementById(
-        "modalDescription"
-    ).textContent =
-        mob.description;
-
-    document.getElementById(
-        "modalSpecial"
-    ).textContent =
-        mob.special;
-
-    document.getElementById(
-        "modalSpawn"
-    ).textContent =
-        mob.spawn;
-
-    document.getElementById(
-        "modalDrops"
-    ).textContent =
-        mob.drops;
-
-    document.getElementById(
-        "modalDetails"
-    ).innerHTML = `
-
-        <div class="detail">
-            <span class="detail-label">
-                MOB ID
-            </span>
-            <span class="detail-value">
-                minecraft:${mob.id}
-            </span>
-        </div>
-
-        <div class="detail">
-            <span class="detail-label">
-                TYPE
-            </span>
-            <span class="detail-value">
-                ${mob.type}
-            </span>
-        </div>
-
-        <div class="detail">
-            <span class="detail-label">
-                DIMENSION
-            </span>
-            <span class="detail-value">
-                ${mob.dimension}
-            </span>
-        </div>
-
-        <div class="detail">
-            <span class="detail-label">
-                HEALTH
-            </span>
-            <span class="detail-value">
-                ${mob.health}
-            </span>
-        </div>
-
-        <div class="detail">
-            <span class="detail-label">
-                ATTACK
-            </span>
-            <span class="detail-value">
-                ${mob.attack}
-            </span>
-        </div>
-
-    `;
-
-    modal.classList.add("open");
-
-    document.body.style.overflow =
-        "hidden";
-}
-
-function closeModal() {
-
-    modal.classList.remove("open");
-
-    document.body.style.overflow =
-        "";
-}
-
-closeModalButton.addEventListener(
-    "click",
-    closeModal
-);
-
-modal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target === modal
-        ) {
-            closeModal();
-        }
-
-    }
-);
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape"
-        ) {
-            closeModal();
-        }
-
-    }
-);
-
-
-/* ========================================================
-   STATISTICS
-======================================================== */
-
-document.getElementById(
-    "mobCount"
-).textContent = mobs.length;
-
-document.getElementById(
-    "passiveCount"
-).textContent =
-    mobs.filter(
-        mob => mob.type === "passive"
-    ).length;
-
-document.getElementById(
-    "hostileCount"
-).textContent =
-    mobs.filter(
-        mob => mob.type === "hostile"
-    ).length;
-
-document.getElementById(
-    "bossCount"
-).textContent =
-    mobs.filter(
-        mob => mob.type === "boss"
-    ).length;
-
-
-/* ========================================================
-   START
-======================================================== */
-
-displayMobs(mobs);
-
-</script>
 
 </body>
 </html>
