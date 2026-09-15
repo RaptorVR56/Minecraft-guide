@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minecraft-guide | Building Guide</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0b1510;
+    color: #edf5ef;
+
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(10, 22, 14, 0.97);
+
+    border-bottom: 1px solid #294a32;
+
+    backdrop-filter: blur(8px);
+}
+
+.nav-container {
+    max-width: 1250px;
+    min-height: 70px;
+
+    margin: auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #6ee878;
+
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.nav-links a {
+    padding: 10px 13px;
+
+    border-radius: 7px;
+
+    color: #aebdb2;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #1a3621;
+    color: #72e77b;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 85px 24px;
+
+    background:
+        linear-gradient(
+            rgba(5, 15, 8, 0.62),
+            rgba(5, 15, 8, 0.94)
+        ),
+        url("images/minecraft-banner.jpg")
+        center / cover;
+
+    border-bottom: 1px solid #294a32;
+}
+
+.hero-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.label {
+    color: #6ee878;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 10px 0 17px;
+
+    font-size: clamp(45px, 7vw, 75px);
+    line-height: 1;
+}
+
+.hero p {
+    max-width: 720px;
+
+    color: #b4c2b8;
+
+    font-size: 18px;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.section {
+    max-width: 1250px;
+
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.section-heading {
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    margin-top: 7px;
+
+    font-size: 38px;
+}
+
+.section-heading p {
+    max-width: 700px;
+
+    margin-top: 7px;
+
+    color: #899a8e;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+.filter {
+    padding: 9px 14px;
+
+    background: #101c14;
+
+    border: 1px solid #304b37;
+    border-radius: 7px;
+
+    color: #aab9af;
+
+    cursor: pointer;
+
+    font-weight: 900;
+}
+
+.filter:hover,
+.filter.active {
+    background: #68dd70;
+    border-color: #68dd70;
+
+    color: #071008;
+}
+
+/* =========================
+   BUILD CARDS
+========================= */
+
+.build-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.build-card {
+    padding: 25px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 11px;
+
+    transition: 0.2s;
+}
+
+.build-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #6ee878;
+}
+
+.build-icon {
+    width: 49px;
+    height: 49px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 17px;
+
+    background: #193521;
+    color: #6ee878;
+
+    border-radius: 8px;
+
+    font-weight: 900;
+}
+
+.build-card h3 {
+    margin-bottom: 8px;
+}
+
+.build-card p {
+    color: #899a8e;
+}
+
+.difficulty {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 5px 9px;
+
+    background: #0b1510;
+
+    border-radius: 5px;
+
+    color: #70e77a;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+/* =========================
+   TUTORIAL
+========================= */
+
+.tutorial {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.tutorial-card {
+    padding: 27px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 11px;
+}
+
+.tutorial-card h3 {
+    margin-bottom: 17px;
+
+    font-size: 23px;
+}
+
+.steps {
+    list-style: none;
+
+    counter-reset: buildsteps;
+}
+
+.steps li {
+    counter-increment: buildsteps;
+
+    position: relative;
+
+    padding: 12px 0 12px 42px;
+
+    border-bottom: 1px solid #213628;
+
+    color: #9ca99f;
+}
+
+.steps li::before {
+    content: counter(buildsteps);
+
+    position: absolute;
+
+    left: 0;
+    top: 9px;
+
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    background: #193521;
+
+    border-radius: 50%;
+
+    color: #6ee878;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* =========================
+   RULES
+========================= */
+
+.rules {
+    display: grid;
+
+    gap: 12px;
+}
+
+.rule {
+    padding: 19px;
+
+    background: #0c1710;
+
+    border: 1px solid #263f2c;
+
+    border-radius: 8px;
+}
+
+.rule strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #6ee878;
+}
+
+.rule p {
+    color: #899a8e;
+}
+
+/* =========================
+   PALETTES
+========================= */
+
+.palette-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.palette-card {
+    padding: 20px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 10px;
+}
+
+.palette-card h3 {
+    margin-bottom: 4px;
+}
+
+.palette-card p {
+    color: #7f9085;
+
+    font-size: 13px;
+}
+
+.blocks {
+    display: flex;
+
+    gap: 6px;
+
+    margin-top: 17px;
+}
+
+.block {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 5px;
+
+    background: #37463a;
+
+    border: 1px solid #536456;
+}
+
+.block:nth-child(2) {
+    background: #4b594c;
+}
+
+.block:nth-child(3) {
+    background: #626b5e;
+}
+
+.block:nth-child(4) {
+    background: #777c6e;
+}
+
+/* =========================
+   TIPS
+========================= */
+
+.tips {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 17px;
+}
+
+.tip {
+    padding: 23px;
+
+    background: #101c14;
+
+    border: 1px solid #294a32;
+    border-radius: 10px;
+}
+
+.tip strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #6ee878;
+}
+
+.tip p {
+    color: #899a8e;
+}
+
+/* =========================
+   BUILD PLANNER
+========================= */
+
+.planner {
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #193521,
+            #102518
+        );
+
+    border: 1px solid #3d6245;
+    border-radius: 13px;
+}
+
+.planner h2 {
+    margin-bottom: 8px;
+
+    font-size: 31px;
+}
+
+.planner > p {
+    margin-bottom: 24px;
+
+    color: #acb9af;
+}
+
+.planner-form {
+    display: grid;
+
+    gap: 12px;
+}
+
+.planner-form input,
+.planner-form textarea,
+.planner-form select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: #0b1510;
+
+    border: 1px solid #38523e;
+    border-radius: 7px;
+
+    color: white;
+
+    outline: none;
+}
+
+.planner-form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.planner-form input:focus,
+.planner-form textarea:focus,
+.planner-form select:focus {
+    border-color: #6ee878;
+}
+
+.plan-button {
+    padding: 13px 18px;
+
+    background: #68dd70;
+
+    border: none;
+    border-radius: 7px;
+
+    color: #071008;
+
+    cursor: pointer;
+
+    font-weight: 900;
+}
+
+.plan-button:hover {
+    background: #7beb83;
+}
+
+#planResult {
+    display: none;
+
+    margin-top: 18px;
+    padding: 16px;
+
+    background: #0b1510;
+
+    border-radius: 7px;
+
+    color: #aebbb1;
+}
+
+#planResult.show {
+    display: block;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 24px;
+
+    background: #08100b;
+
+    border-top: 1px solid #203728;
+}
+
+.footer-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-container p {
+    color: #6f8075;
+
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #7f9085;
+
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #6ee878;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .build-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .palette-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tutorial {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 14px 20px;
+
+        gap: 10px;
+    }
+
+    .build-grid,
+    .palette-grid,
+    .tips {
+        grid-template-columns: 1fr;
+    }
+
+    .planner {
+        padding: 25px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            MINECRAFT<span>-GUIDE</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#guides">
+                Guides
+            </a>
+
+            <a href="mobs.html">
+                Mobs
+            </a>
+
+            <a
+                href="building.html"
+                class="active"
+            >
+                Building
+            </a>
+
+            <a href="index.html#modding">
+                Modding
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-container">
+
+        <div class="label">
+            MINECRAFT BUILDING GUIDE
+        </div>
+
+        <h1>
+            Build Better.
+        </h1>
+
+        <p>
+            Learn the fundamentals of Minecraft building,
+            from your first survival house to detailed
+            bases, interiors and large structures.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     BUILDING LESSONS
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="label">
+            BUILDING LESSONS
+        </div>
+
+        <h2>
+            Start Building
+        </h2>
+
+        <p>
+            Minecraft building becomes much easier when
+            you understand shape, depth, texture and scale.
+        </p>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            data-filter="all"
+        >
+            All
+        </button>
+
+        <button
+            class="filter"
+            data-filter="beginner"
+        >
+            Beginner
+        </button>
+
+        <button
+            class="filter"
+            data-filter="intermediate"
+        >
+            Intermediate
+        </button>
+
+        <button
+            class="filter"
+            data-filter="advanced"
+        >
+            Advanced
+        </button>
+
+    </div>
+
+
+    <div class="build-grid" id="buildGrid">
+
+
+        <article
+            class="build-card"
+            data-level="beginner"
+        >
+
+            <div class="build-icon">
+                01
+            </div>
+
+            <h3>
+                Starter House
+            </h3>
+
+            <p>
+                Learn how to build a simple but useful
+                first survival house.
+            </p>
+
+            <span class="difficulty">
+                Beginner
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="beginner"
+        >
+
+            <div class="build-icon">
+                02
+            </div>
+
+            <h3>
+                Better Walls
+            </h3>
+
+            <p>
+                Learn how to add pillars, windows,
+                corners and depth to flat walls.
+            </p>
+
+            <span class="difficulty">
+                Beginner
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="beginner"
+        >
+
+            <div class="build-icon">
+                03
+            </div>
+
+            <h3>
+                Simple Roofs
+            </h3>
+
+            <p>
+                Learn how stairs and slabs can be used
+                to create more interesting roofs.
+            </p>
+
+            <span class="difficulty">
+                Beginner
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="intermediate"
+        >
+
+            <div class="build-icon">
+                04
+            </div>
+
+            <h3>
+                Adding Depth
+            </h3>
+
+            <p>
+                Push windows, pillars and sections of
+                walls in and out to create shadows.
+            </p>
+
+            <span class="difficulty">
+                Intermediate
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="intermediate"
+        >
+
+            <div class="build-icon">
+                05
+            </div>
+
+            <h3>
+                Block Palettes
+            </h3>
+
+            <p>
+                Learn how to combine blocks that have
+                colors and textures that work together.
+            </p>
+
+            <span class="difficulty">
+                Intermediate
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="intermediate"
+        >
+
+            <div class="build-icon">
+                06
+            </div>
+
+            <h3>
+                Interior Design
+            </h3>
+
+            <p>
+                Turn empty rooms into useful and
+                detailed interiors.
+            </p>
+
+            <span class="difficulty">
+                Intermediate
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="advanced"
+        >
+
+            <div class="build-icon">
+                07
+            </div>
+
+            <h3>
+                Large Bases
+            </h3>
+
+            <p>
+                Learn how to plan large builds using
+                sections and repeated shapes.
+            </p>
+
+            <span class="difficulty">
+                Advanced
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="advanced"
+        >
+
+            <div class="build-icon">
+                08
+            </div>
+
+            <h3>
+                Terraforming
+            </h3>
+
+            <p>
+                Shape the terrain around your buildings
+                so the structure fits its environment.
+            </p>
+
+            <span class="difficulty">
+                Advanced
+            </span>
+
+        </article>
+
+
+        <article
+            class="build-card"
+            data-level="advanced"
+        >
+
+            <div class="build-icon">
+                09
+            </div>
+
+            <h3>
+                Detailed Structures
+            </h3>
+
+            <p>
+                Combine shape, depth, texture and
+                landscaping into complete builds.
+            </p>
+
+            <span class="difficulty">
+                Advanced
+            </span>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TUTORIAL
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="label">
+            BUILDING BASICS
+        </div>
+
+        <h2>
+            How to Build a Better House
+        </h2>
+
+        <p>
+            Follow this process whenever you start
+            a new Minecraft building project.
+        </p>
+
+    </div>
+
+
+    <div class="tutorial">
+
+
+        <article class="tutorial-card">
+
+            <h3>
+                Step-by-Step
+            </h3>
+
+            <ol class="steps">
+
+                <li>
+                    Pick a location that fits your build.
+                </li>
+
+                <li>
+                    Decide how large the structure should be.
+                </li>
+
+                <li>
+                    Build the basic shape.
+                </li>
+
+                <li>
+                    Add doors and windows.
+                </li>
+
+                <li>
+                    Build the roof.
+                </li>
+
+                <li>
+                    Add depth to the walls.
+                </li>
+
+                <li>
+                    Add lighting and decoration.
+                </li>
+
+                <li>
+                    Finish the surrounding terrain.
+                </li>
+
+            </ol>
+
+        </article>
+
+
+        <article class="tutorial-card">
+
+            <h3>
+                Three Important Rules
+            </h3>
+
+
+            <div class="rules">
+
+                <div class="rule">
+
+                    <strong>
+                        1. Shape
+                    </strong>
+
+                    <p>
+                        Start with an interesting shape
+                        instead of a plain rectangle.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <strong>
+                        2. Depth
+                    </strong>
+
+                    <p>
+                        Move windows, walls, pillars and
+                        roofs in and out to create shadows.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <strong>
+                        3. Texture
+                    </strong>
+
+                    <p>
+                        Combine related blocks instead of
+                        using exactly one block everywhere.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BLOCK PALETTES
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="label">
+            DESIGN
+        </div>
+
+        <h2>
+            Block Palette Ideas
+        </h2>
+
+        <p>
+            A good block palette can dramatically change
+            the appearance of a build.
+        </p>
+
+    </div>
+
+
+    <div class="palette-grid">
+
+
+        <article class="palette-card">
+
+            <h3>
+                Forest Cabin
+            </h3>
+
+            <p>
+                Warm wood and natural stone
+            </p>
+
+            <div class="blocks">
+
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+
+            </div>
+
+        </article>
+
+
+        <article class="palette-card">
+
+            <h3>
+                Medieval
+            </h3>
+
+            <p>
+                Dark wood and stone
+            </p>
+
+            <div class="blocks">
+
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+
+            </div>
+
+        </article>
+
+
+        <article class="palette-card">
+
+            <h3>
+                Modern
+            </h3>
+
+            <p>
+                Concrete and glass
+            </p>
+
+            <div class="blocks">
+
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+
+            </div>
+
+        </article>
+
+
+        <article class="palette-card">
+
+            <h3>
+                Nether
+            </h3>
+
+            <p>
+                Nether blocks and stone
+            </p>
+
+            <div class="blocks">
+
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TIPS
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="label">
+            BUILDER TIPS
+        </div>
+
+        <h2>
+            Building Tips
+        </h2>
+
+    </div>
+
+
+    <div class="tips">
+
+
+        <article class="tip">
+
+            <strong>
+                Don't make everything flat
+            </strong>
+
+            <p>
+                Use stairs, slabs, walls, fences and
+                other shapes to create depth.
+            </p>
+
+        </article>
+
+
+        <article class="tip">
+
+            <strong>
+                Use multiple blocks
+            </strong>
+
+            <p>
+                Mixing related textures can make
+                walls and structures more interesting.
+            </p>
+
+        </article>
+
+
+        <article class="tip">
+
+            <strong>
+                Think about scale
+            </strong>
+
+            <p>
+                Doors, windows, rooms and roofs should
+                fit the size of the overall structure.
+            </p>
+
+        </article>
+
+
+        <article class="tip">
+
+            <strong>
+                Build the surroundings
+            </strong>
+
+            <p>
+                Paths, trees, gardens, rocks and terrain
+                can make a building feel more natural.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BUILD PLANNER
+========================= -->
+
+<section class="section">
+
+    <div class="planner">
+
+        <h2>
+            Build Planner
+        </h2>
+
+        <p>
+            Plan your next Minecraft project before
+            you start building.
+        </p>
+
+
+        <div class="planner-form">
+
+            <input
+                id="buildName"
+                type="text"
+                placeholder="Build name"
+            >
+
+
+            <select id="buildStyle">
+
+                <option value="">
+                    Choose a style
+                </option>
+
+                <option value="Medieval">
+                    Medieval
+                </option>
+
+                <option value="Modern">
+                    Modern
+                </option>
+
+                <option value="Cottage">
+                    Cottage
+                </option>
+
+                <option value="Fantasy">
+                    Fantasy
+                </option>
+
+                <option value="Industrial">
+                    Industrial
+                </option>
+
+                <option value="Nether">
+                    Nether
+                </option>
+
+            </select>
+
+
+            <textarea
+                id="buildNotes"
+                placeholder="Describe your build..."
+            ></textarea>
+
+
+            <button
+                class="plan-button"
+                id="createPlan"
+            >
+                Create Build Plan
+            </button>
+
+        </div>
+
+
+        <div
+            id="planResult"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <p>
+            © 2026 Minecraft-guide.
+            Fan-made Minecraft resource.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="mobs.html">
+                Mobs
+            </a>
+
+            <a href="building.html">
+                Building
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   BUILDING FILTER
+========================= */
+
+const filterButtons =
+    document.querySelectorAll(".filter");
+
+const buildCards =
+    document.querySelectorAll(".build-card");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            filterButtons.forEach(
+                btn =>
+                    btn.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            const filter =
+                button.dataset.filter;
+
+
+            buildCards.forEach(card => {
+
+                if (
+                    filter === "all" ||
+                    card.dataset.level === filter
+                ) {
+
+                    card.style.display = "";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================
+   BUILD PLANNER
+========================= */
+
+const createPlan =
+    document.getElementById("createPlan");
+
+
+createPlan.addEventListener(
+    "click",
+    () => {
+
+        const name =
+            document
+                .getElementById("buildName")
+                .value
+                .trim();
+
+
+        const style =
+            document
+                .getElementById("buildStyle")
+                .value;
+
+
+        const notes =
+            document
+                .getElementById("buildNotes")
+                .value
+                .trim();
+
+
+        const result =
+            document.getElementById("planResult");
+
+
+        if (!name || !style) {
+
+            result.textContent =
+                "Please enter a build name and choose a style.";
+
+            result.classList.add("show");
+
+            return;
+
+        }
+
+
+        result.innerHTML = `
+
+            <strong style="color:#6ee878;">
+                Build Plan Created
+            </strong>
+
+            <br><br>
+
+            <strong>
+                Build:
+            </strong>
+
+            ${escapeHTML(name)}
+
+            <br>
+
+            <strong>
+                Style:
+            </strong>
+
+            ${escapeHTML(style)}
+
+            <br>
+
+            <strong>
+                Notes:
+            </strong>
+
+            ${escapeHTML(
+                notes || "No notes added."
+            )}
+
+        `;
+
+
+        result.classList.add("show");
+
+    }
+);
+
+
+/* =========================
+   TEXT SAFETY
+========================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+</body>
+</html>
